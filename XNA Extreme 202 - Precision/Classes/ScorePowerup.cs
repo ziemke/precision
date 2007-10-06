@@ -13,7 +13,7 @@ namespace Precision.Classes
             this.Position = -this.Origin;
             this.RespawnTime = Config.SCORE_POWERUP_RESPAWN_TIME;
             this.ActiveTime = Config.SCORE_POWERUP_DURATION;
-            this.DefaultPickupTime = Config.TIME_POWERUP_PICKUP_TIME;
+            this.DefaultPickupTime = Config.SCORE_POWERUP_PICKUP_TIME;
             this.activeTimeBar.Position = new Vector2(Game1.SCREEN_WIDTH / 2, 3 * Config.ACTIVE_TIMEBAR_HEIGHT);
         }
         #endregion

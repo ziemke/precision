@@ -13,8 +13,7 @@ namespace Precision.Classes
             this.Position = -this.Origin;
             this.RespawnTime = Config.SHIELD_POWERUP_RESPAWN_TIME;
             this.ActiveTime = Config.SHIELD_POWERUP_DURATION;
-            this.DefaultPickupTime = Config.TIME_POWERUP_PICKUP_TIME;
-            this.activeTimeBar.Position = new Vector2(Game1.SCREEN_WIDTH / 2, 3 * Config.ACTIVE_TIMEBAR_HEIGHT);
+            this.DefaultPickupTime = Config.SHIELD_POWERUP_PICKUP_TIME;
         }
         #endregion
 
@@ -22,18 +21,10 @@ namespace Precision.Classes
         #region override Activate
         protected override void Activate()
         {
-            for (int i = actors.Count - 1; i >= 0; i--)
-            {
+           
+            Game1.player.InvincibilityTime = Config.SHIELD_POWERUP_DURATION;
+            Game1.player.overlayTextures.Add(this.texture);
 
-                if (actors[i] is Player)
-                {
-                    Player player = actors[i] as Player;
-                    player.InvincibilityTime = Config.SHIELD_POWERUP_DURATION; ;
-                    //player.Flicker = true;
-                    player.overlayTextures.Add(this.texture);
-                    break;
-                }
-            }
             base.Activate();
         }
         #endregion
@@ -41,18 +32,10 @@ namespace Precision.Classes
         #region override Deactivate
         protected override void Deactivate()
         {
-            for (int i = actors.Count - 1; i >= 0; i--)
-            {
+          
+            Game1.player.InvincibilityTime = 0;
+            Game1.player.overlayTextures.Remove(this.texture);
 
-                if (actors[i] is Player)
-                {
-                    Player player = actors[i] as Player;
-                    player.InvincibilityTime = 0;
-                    //player.Flicker = false;
-                    player.overlayTextures.Remove(this.texture);
-                    break;
-                }
-            }
             base.Deactivate();
         }
         #endregion

@@ -8,7 +8,7 @@ namespace Precision.Classes
     {
         #region Fields
         float activeTime;
-        float activeTimeRemaining;
+        protected float activeTimeRemaining;
         internal Bar activeTimeBar;
         float iconScale;
         #endregion
@@ -107,8 +107,6 @@ namespace Precision.Classes
             return Vector2.Zero;
         }
         #endregion
-
-        
 
         #region override beginLevel
         internal override void BeginLevel()

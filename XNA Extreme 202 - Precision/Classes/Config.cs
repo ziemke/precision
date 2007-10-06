@@ -26,22 +26,30 @@ namespace Precision.Classes
 
         internal const float EXTRALIFE_POWERUP_RESPAWN_TIME = 15f;
         internal const float EXTRALIFE_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER = 10f;
-        internal const float EXTRALIFE_POWERUP_PICKUP_TIME = 3f;
+        internal const float EXTRALIFE_POWERUP_PICKUP_TIME = 5f;
         internal static readonly Color extralivePowerupPickupTimeBarColor = Color.White;
 
         internal const float SCORE_POWERUP_DURATION = 3f;
-        internal const float SCORE_POWERUP_RESPAWN_TIME = 1f;
-        internal const float SCORE_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER = 0f;
-        internal const float SCORE_POWERUP_PICKUP_TIME = 8f;
+        internal const float SCORE_POWERUP_RESPAWN_TIME = 15f;
+        internal const float SCORE_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER = 10f;
+        internal const float SCORE_POWERUP_PICKUP_TIME = 5f;
         internal static readonly Color scorePowerupActiveTimeBarColor = Color.Orange;
         internal static readonly Color scorePowerupPickupTimeBarColor = Color.White;
 
         internal const float SHIELD_POWERUP_DURATION = 3f;
-        internal const float SHIELD_POWERUP_RESPAWN_TIME = 1f;
-        internal const float SHIELD_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER = 0f;
-        internal const float SHIELD_POWERUP_PICKUP_TIME = 8f;
-        internal static readonly Color shieldPowerupActiveTimeBarColor = Color.Red;
+        internal const float SHIELD_POWERUP_RESPAWN_TIME = 15f;
+        internal const float SHIELD_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER = 10f;
+        internal const float SHIELD_POWERUP_PICKUP_TIME = 5f;
+        internal static readonly Color shieldPowerupActiveTimeBarColor = Color.LightBlue;
         internal static readonly Color shieldPowerupPickupTimeBarColor = Color.White;
+
+
+        internal const float DESTRUCTION_POWERUP_DURATION = 3f;
+        internal const float DESTRUCTION_POWERUP_RESPAWN_TIME = 1f;
+        internal const float DESTRUCTION_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER = 0f;
+        internal const float DESTRUCTION_POWERUP_PICKUP_TIME = 5f;
+        internal static readonly Color destructionPowerupActiveTimeBarColor = Color.Red;
+        internal static readonly Color destructionPowerupPickupTimeBarColor = Color.White;
 
         
     }

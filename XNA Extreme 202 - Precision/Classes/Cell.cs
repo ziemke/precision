@@ -88,7 +88,6 @@ namespace Precision.Classes
                 Actor.actors.Remove(this);
                 cellCount--;
             }
-
             base.Update(gameTime);
         }
         #endregion
@@ -153,6 +152,21 @@ namespace Precision.Classes
         {
             Bar.bars.Remove(this.lifeBar);
             this.lifeBar = null;
+        }
+        #endregion
+
+        #region Kill
+        internal void Kill()
+        {
+            if (this.state == CellState.Dead) return;
+
+            this.state = CellState.Dead;
+            cellCount--;
+            Bar.bars.Remove(this.lifeBar);
+            this.lifeBar = null;
+            Game1.currentScoreValue -= Game1.CELL_DEATH_PENALTY;
+            this.lifePercent = -0.1f;
+            this.tint = deadColor;
         }
         #endregion
         #endregion

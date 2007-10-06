@@ -23,7 +23,7 @@ namespace Precision
         GraphicsDeviceManager graphics;
         ContentManager content;
         SpriteBatch spriteBatch;
-       internal static SpriteFont spriteFont;
+        internal static SpriteFont spriteFont;
         Color overlayColorDeath = new Color(200, 0, 0, 128);
         Color overlayColorPause = new Color(255, 255, 255, 128);
         static Random random;
@@ -67,8 +67,8 @@ namespace Precision
 
         static float titleScreenFlick = 0;
 
-        Player player;
-        static Texture2D backgroundTexture, titleScreenTexture, titleScreenTextureNormal, titleScreenRolloverTexture, playerTexture, cellTexture, enemyTexture, overlayTexture, levelChangeTexture, timeTexture, extralifeTexture, shieldTexture, slowmoeffectTexture, scoreTexture;
+        internal static Player player;
+        static Texture2D backgroundTexture, titleScreenTexture, titleScreenTextureNormal, titleScreenRolloverTexture, playerTexture, cellTexture, enemyTexture, overlayTexture, levelChangeTexture, timeTexture, extralifeTexture, shieldTexture, slowmoeffectTexture, scoreTexture, destructionTexture, destructionplayerTexture;
         #endregion
 
         #region Properties
@@ -136,6 +136,8 @@ namespace Precision
                 extralifeTexture = content.Load<Texture2D>("Content/ExtraLifePowerup");
                 slowmoeffectTexture = content.Load<Texture2D>("Content/SlowMoEffect");
                 scoreTexture = content.Load<Texture2D>("Content/ScorePowerUp");
+                destructionTexture = content.Load<Texture2D>("Content/destructionPowerup");
+                destructionplayerTexture = content.Load<Texture2D>("Content/destructionPowerupPlayer");
 
                 titleScreenTexture = titleScreenTextureNormal;
 
@@ -282,7 +284,7 @@ namespace Precision
                         Enemy enemy = actor as Enemy;
                         if (enemy != null)
                         {
-                            if (Actor.CheckCollision(this.player, enemy) && enemy.IsHarmful && !player.IsInvincible)
+                            if (Actor.CheckCollision(player, enemy) && enemy.IsHarmful && !player.IsInvincible)
                             {
                                 lives--;
                                 if (lives > 0)
@@ -314,6 +316,8 @@ namespace Precision
                                 cell.Saved();
                                 this.score += currentScoreValue * scoreMultiplicator;
                             }
+
+                            continue;
                         }
 
                         Powerup powerup = actor as Powerup;
@@ -425,6 +429,7 @@ namespace Precision
             new ScorePowerup(scoreTexture, Config.scorePowerupActiveTimeBarColor, Config.scorePowerupPickupTimeBarColor);
             new ExtraLifePowerup(extralifeTexture, Config.extralivePowerupPickupTimeBarColor);
             new ShieldPowerup(shieldTexture, Config.shieldPowerupActiveTimeBarColor, Config.shieldPowerupPickupTimeBarColor);
+            new DestructionPowerup(destructionTexture, destructionplayerTexture, Config.destructionPowerupActiveTimeBarColor, Config.destructionPowerupPickupTimeBarColor);
 
         }
         #endregion
@@ -446,8 +451,8 @@ namespace Precision
             Cell.AddCells(levelCellCount, cellTexture, cellHealthyColor, cellDeadColor, cellBarHealthyColor, cellBarDeadColor);
             Enemy.AddEnemies(levelEnemyCount, enemyTexture, ENEMY_BASE_SPEED, ENEMY_SPEED_VARIATION);
 
-            this.player = new Player(playerTexture);
-            this.player.Reset(PLAYER_INVINCIBILITY_TIME);
+            player = new Player(playerTexture);
+            player.Reset(PLAYER_INVINCIBILITY_TIME);
 
             this.timeUntilAttack = cellAttackInterval;
 
