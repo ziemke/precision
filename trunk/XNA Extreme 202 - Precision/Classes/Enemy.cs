@@ -66,6 +66,8 @@ namespace Precision.Classes
             if (this.amount >= 1f)
                 this.SetRandomMove();
 
+            if (this.scale < 0)
+                Actor.actors.Remove(this);
 
             base.Update(gameTime);
         }
@@ -101,6 +103,12 @@ namespace Precision.Classes
         }
         #endregion
 
+        #region Kill
+        internal void Kill()
+        {
+            StartScale(-1, 3f);
+        }
+        #endregion
         #endregion
     }
 }

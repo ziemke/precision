@@ -71,6 +71,10 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>Config</Name>
     </Compile>
+    <Compile Include="Classes\DestructionPowerup.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>DestructionPowerup</Name>
+    </Compile>
     <Compile Include="Classes\enduringPowerup.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>enduringPowerup</Name>
@@ -149,6 +153,18 @@
       <Importer>TextureImporter</Importer>
       <Processor>SpriteTextureProcessor</Processor>
       <Name>Cell</Name>
+    </Content>
+    <Content Include="Content\destructionPowerup.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>destructionPowerup</Name>
+    </Content>
+    <Content Include="Content\destructionPowerupPlayer.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>destructionPowerupPlayer</Name>
     </Content>
     <Content Include="Content\Enemy.png">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>
