@@ -30,10 +30,9 @@ namespace Precision.Classes
             this.activeTimeBar = new Bar(Config.ACTIVE_TIMEBAR_WIDTH, Config.ACTIVE_TIMEBAR_HEIGHT, activeTimeBarColorList);
             this.activeTimeBar.Alignment = Bar.BarAlignment.Center;
             this.activeTimeBar.Percent = 0f;
-            iconScale = GetIconScaleToFit(new Vector2(this.texture.Width, this.texture.Height), new Vector2(Config.ACTIVE_TIMEBAR_ICON_SIZE));
+            iconScale = Game1.ScaleToFit(new Vector2(this.texture.Width, this.texture.Height), new Vector2(Config.ACTIVE_TIMEBAR_ICON_SIZE));
         }
         #endregion
-
 
         #region Methods
         #region Update
@@ -109,23 +108,7 @@ namespace Precision.Classes
         }
         #endregion
 
-        #region Get Icon Scale To Fit
-        private float GetIconScaleToFit(Vector2 source, Vector2 target)
-        {
-            float scale = 1f;
-            if (source.X < target.X || source.Y < target.Y)
-            {
-                while (source.X * scale < target.X && source.Y * scale < target.Y)
-                    scale += 0.01f;
-            }
-            else
-            {
-                while (source.X * scale > target.X && source.Y * scale > target.Y)
-                    scale -= 0.01f;
-            }
-            return scale;
-        }
-        #endregion
+        
 
         #region override beginLevel
         internal override void BeginLevel()

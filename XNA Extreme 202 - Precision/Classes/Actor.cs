@@ -15,11 +15,11 @@ namespace Precision.Classes
         Vector2 position;
 
         const float FLICKER_FREQUENCY = 15f;
-        bool visible;
+        protected bool visible;
         bool flicker;
         double nextFlickerUpdate;
 
-        float scale;
+        protected float scale;
         float scaleTime;
         float scalePerSecond;
 
@@ -136,6 +136,9 @@ namespace Precision.Classes
             if (this.visible)
             {
                 spriteBatch.Draw(texture, this.Position, null, this.tint, this.rotate, this.Origin, scale, SpriteEffects.None, 0f);
+
+                Player player = this as Player;
+                if (player != null) player.DrawOverlayTextures(spriteBatch);
             }
         }
         #endregion

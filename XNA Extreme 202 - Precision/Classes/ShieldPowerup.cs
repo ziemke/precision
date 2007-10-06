@@ -6,22 +6,17 @@ namespace Precision.Classes
 {
     class ShieldPowerup : enduringPowerup
     {
-        #region Fields
-        const float INVINCIBLE_POWERUP_RESPAWN_TIME = 0f;
-        const float INVINCIBLE_POWERUP_DURATION = 3f;
-
-        #endregion
         #region Constructors
         internal ShieldPowerup(Texture2D texture, Color activeTimeBarColor, Color pickupTimeBarColor)
             : base(texture, activeTimeBarColor, pickupTimeBarColor)
         {
-            activeTimeBar.Position += new Vector2(0, Config.ACTIVE_TIMEBAR_HEIGHT + Config.ACTIVE_TIMEBAR_HEIGHT / 2);   
+            this.Position = -this.Origin;
+            this.RespawnTime = Config.SHIELD_POWERUP_RESPAWN_TIME;
+            this.ActiveTime = Config.SHIELD_POWERUP_DURATION;
+            this.DefaultPickupTime = Config.TIME_POWERUP_PICKUP_TIME;
+            this.activeTimeBar.Position = new Vector2(Game1.SCREEN_WIDTH / 2, 3 * Config.ACTIVE_TIMEBAR_HEIGHT);
         }
         #endregion
-        internal override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-        }
 
         #region Methods
         #region override Activate
@@ -33,8 +28,9 @@ namespace Precision.Classes
                 if (actors[i] is Player)
                 {
                     Player player = actors[i] as Player;
-                    player.InvincibilityTime = 3f;
-                    player.Flicker = true;
+                    player.InvincibilityTime = Config.SHIELD_POWERUP_DURATION; ;
+                    //player.Flicker = true;
+                    player.overlayTextures.Add(this.texture);
                     break;
                 }
             }
@@ -52,30 +48,14 @@ namespace Precision.Classes
                 {
                     Player player = actors[i] as Player;
                     player.InvincibilityTime = 0;
-                    player.Flicker = false;
+                    //player.Flicker = false;
+                    player.overlayTextures.Remove(this.texture);
                     break;
                 }
             }
             base.Deactivate();
         }
         #endregion
-
-
-        #region Insert Invincible Powerups
-        internal static void InsertShieldPowerups(Texture2D texture, int num)
-        {
-            for (int i = 0; i < num; i++)
-            {
-                ShieldPowerup ShieldPowerup = new ShieldPowerup(texture, Color.Green, Color.White);
-                ShieldPowerup.Position = -ShieldPowerup.Origin;
-                ShieldPowerup.RespawnTime = INVINCIBLE_POWERUP_RESPAWN_TIME;
-                ShieldPowerup.ActiveTime = INVINCIBLE_POWERUP_DURATION;
-                ShieldPowerup.Position = Game1.GetRandomScreenPosition(texture.Width / 2);
-                ShieldPowerup = null;
-             }
-        }
-        #endregion
-
         #endregion
     }
 }

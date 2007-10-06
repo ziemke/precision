@@ -36,6 +36,13 @@ namespace Precision.Classes
         internal static readonly Color scorePowerupActiveTimeBarColor = Color.Orange;
         internal static readonly Color scorePowerupPickupTimeBarColor = Color.White;
 
+        internal const float SHIELD_POWERUP_DURATION = 3f;
+        internal const float SHIELD_POWERUP_RESPAWN_TIME = 1f;
+        internal const float SHIELD_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER = 0f;
+        internal const float SHIELD_POWERUP_PICKUP_TIME = 8f;
+        internal static readonly Color shieldPowerupActiveTimeBarColor = Color.Red;
+        internal static readonly Color shieldPowerupPickupTimeBarColor = Color.White;
+
         
     }
 }
