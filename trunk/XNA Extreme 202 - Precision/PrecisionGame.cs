@@ -424,6 +424,7 @@ namespace Precision
             new TimePowerup(timeTexture, Config.timePowerupActiveTimeBarColor, Config.timePowerupPickupTimeBarColor);
             new ScorePowerup(scoreTexture, Config.scorePowerupActiveTimeBarColor, Config.scorePowerupPickupTimeBarColor);
             new ExtraLifePowerup(extralifeTexture, Config.extralivePowerupPickupTimeBarColor);
+            new ShieldPowerup(shieldTexture, Config.shieldPowerupActiveTimeBarColor, Config.shieldPowerupPickupTimeBarColor);
 
         }
         #endregion
@@ -498,6 +499,24 @@ namespace Precision
             lives++;
         }
 
+        #endregion
+
+        #region Scale To Fit
+        internal static float ScaleToFit(Vector2 source, Vector2 target)
+        {
+            float scale = 1f;
+            if (source.X < target.X || source.Y < target.Y)
+            {
+                while (source.X * scale < target.X && source.Y * scale < target.Y)
+                    scale += 0.01f;
+            }
+            else
+            {
+                while (source.X * scale > target.X && source.Y * scale > target.Y)
+                    scale -= 0.01f;
+            }
+            return scale;
+        }
         #endregion
         #endregion
 

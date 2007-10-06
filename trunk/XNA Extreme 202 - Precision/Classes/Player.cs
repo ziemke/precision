@@ -8,7 +8,7 @@ namespace Precision.Classes
     {
         #region Fields
         float invincibilityTime;
-
+        internal List<Texture2D> overlayTextures;
         #endregion
 
         #region Properties
@@ -28,7 +28,7 @@ namespace Precision.Classes
         #region Constructos
         internal Player(Texture2D texture) : base(texture)
         {
-            Position = new Vector2(400, 300);
+            overlayTextures = new List<Texture2D>();
         }
         #endregion
 
@@ -44,6 +44,14 @@ namespace Precision.Classes
                     this.Flicker = false;
             }
             base.Update(gameTime);
+        }
+        #endregion
+        
+        #region Draw overlay Textures
+        internal void DrawOverlayTextures(SpriteBatch spriteBatch)
+        {
+                foreach (Texture2D overlayTexture in overlayTextures)
+                    spriteBatch.Draw(overlayTexture, this.Position, null, this.tint, this.rotate, this.Origin, Game1.ScaleToFit(new Vector2(overlayTexture.Width, overlayTexture.Height), new Vector2(this.texture.Width, this.texture.Height)), SpriteEffects.None, 1f);
         }
         #endregion
 
