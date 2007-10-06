@@ -1,0 +1,243 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{2D11013E-8093-434A-AECC-BFED6F23FC6C}</ProjectGuid>
+    <ProjectTypeGuids>{9F340DF3-2AED-4330-AC16-78AC2D9B4738};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Precision</RootNamespace>
+    <AssemblyName>XNA Extreme 202 - Precision</AssemblyName>
+    <XnaFrameworkVersion>v1.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <XNAGlobalContentPipelineAssemblies>Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll;Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll;Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll;Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</XNAGlobalContentPipelineAssemblies>
+    <XNAProjectContentPipelineAssemblies>
+    </XNAProjectContentPipelineAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Actor.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Actor</Name>
+    </Compile>
+    <Compile Include="Classes\Bar.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Bar</Name>
+    </Compile>
+    <Compile Include="Classes\Cell.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Cell</Name>
+    </Compile>
+    <Compile Include="Classes\Config.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Config</Name>
+    </Compile>
+    <Compile Include="Classes\enduringPowerup.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>enduringPowerup</Name>
+    </Compile>
+    <Compile Include="Classes\Enemy.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Enemy</Name>
+    </Compile>
+    <Compile Include="Classes\nonRecurringPowerup.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>nonRecurringPowerup</Name>
+    </Compile>
+    <Compile Include="Classes\ScorePowerup.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ScorePowerup</Name>
+    </Compile>
+    <Compile Include="Classes\ShieldPowerup.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ShieldPowerup</Name>
+    </Compile>
+    <Compile Include="Classes\BackgroundBar.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>BackgroundBar</Name>
+    </Compile>
+    <Compile Include="Classes\Player.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Player</Name>
+    </Compile>
+    <Compile Include="Classes\Powerup.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Powerup</Name>
+    </Compile>
+    <Compile Include="Classes\SlowMoEffect.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>SlowMoEffect</Name>
+    </Compile>
+    <Compile Include="Classes\TimePowerup.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>TimePowerup</Name>
+    </Compile>
+    <Compile Include="Classes\ExtraLifePowerUp.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ExtraLifePowerUp</Name>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Program</Name>
+    </Compile>
+    <Compile Include="PrecisionGame.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>PrecisionGame</Name>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Game.ico">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Game</Name>
+    </Content>
+    <Content Include="GameThumbnail.png">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>GameThumbnail</Name>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Background.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>Background</Name>
+    </Content>
+    <Content Include="Content\Cell.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>Cell</Name>
+    </Content>
+    <Content Include="Content\Enemy.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>Enemy</Name>
+    </Content>
+    <Content Include="Content\ExtraLifePowerup.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>ExtraLifePowerup</Name>
+    </Content>
+    <Content Include="Content\Fill22.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>Fill22</Name>
+    </Content>
+    <Content Include="Content\Font1.spritefont">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Name>Font1</Name>
+    </Content>
+    <Content Include="Content\LevelChangeScreen.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>LevelChangeScreen</Name>
+    </Content>
+    <Content Include="Content\Player.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>Player</Name>
+    </Content>
+    <Content Include="Content\ScorePowerUp.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>ScorePowerUp</Name>
+    </Content>
+    <Content Include="Content\ShieldPowerup.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>ShieldPowerup</Name>
+    </Content>
+    <Content Include="Content\SlowMoEffect.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>SlowMoEffect</Name>
+    </Content>
+    <Content Include="Content\TimePowerup.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>TimePowerup</Name>
+    </Content>
+    <Content Include="Content\TitleScreen.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>TitleScreen</Name>
+    </Content>
+    <Content Include="Content\TitleScreenRollover.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>TitleScreenRollover</Name>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA\Game Studio Express\v1.0\Microsoft.Xna.ContentPipeline.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA\Game Studio Express\v1.0\Microsoft.Xna.Common.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{9F340DF3-2AED-4330-AC16-78AC2D9B4738}">
+        <Thumbnail Include="GameThumbnail.png" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
