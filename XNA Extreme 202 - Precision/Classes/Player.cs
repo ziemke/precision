@@ -9,6 +9,7 @@ namespace Precision.Classes
         #region Fields
         float invincibilityTime;
         internal List<Texture2D> overlayTextures;
+        float slowDown = 1f; 
         #endregion
 
         #region Properties
@@ -22,6 +23,13 @@ namespace Precision.Classes
             get { return invincibilityTime; }
             set { invincibilityTime = value; }
         }
+
+        internal float SlowDown
+        {
+            get { return slowDown; }
+            set { slowDown = value; }
+        }
+	
 	
         #endregion
 

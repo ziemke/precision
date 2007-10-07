@@ -22,8 +22,8 @@ namespace Precision.Classes
         #endregion
 
         #region Constructors
-        internal enduringPowerup(Texture2D texture, Color activeTimeBarColor, Color pickupTimeBarColor)
-            : base(texture, pickupTimeBarColor)
+        internal enduringPowerup(Texture2D texture, Color activeTimeBarColor, List<Color> pickupTimeBarColors)
+            : base(texture, pickupTimeBarColors)
         {
             List<Color> activeTimeBarColorList = new List<Color>();
             activeTimeBarColorList.Add(activeTimeBarColor);

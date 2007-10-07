@@ -111,6 +111,10 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>SlowMoEffect</Name>
     </Compile>
+    <Compile Include="Classes\SpeedPowerdown.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>SpeedPowerdown</Name>
+    </Compile>
     <Compile Include="Classes\TimePowerup.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>TimePowerup</Name>
@@ -142,6 +146,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Classes\SpeedPowerdownPlayer.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>SpeedPowerdownPlayer</Name>
+    </Content>
     <Content Include="Content\Background.png">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>
       <Importer>TextureImporter</Importer>
@@ -154,17 +164,17 @@
       <Processor>SpriteTextureProcessor</Processor>
       <Name>Cell</Name>
     </Content>
-    <Content Include="Content\destructionPowerup.png">
+    <Content Include="Content\DestructionPowerup.png">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>
       <Importer>TextureImporter</Importer>
       <Processor>SpriteTextureProcessor</Processor>
-      <Name>destructionPowerup</Name>
+      <Name>DestructionPowerup</Name>
     </Content>
-    <Content Include="Content\destructionPowerupPlayer.png">
+    <Content Include="Content\DestructionPowerupPlayer.png">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>
       <Importer>TextureImporter</Importer>
       <Processor>SpriteTextureProcessor</Processor>
-      <Name>destructionPowerupPlayer</Name>
+      <Name>DestructionPowerupPlayer</Name>
     </Content>
     <Content Include="Content\Enemy.png">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>
@@ -219,6 +229,12 @@
       <Importer>TextureImporter</Importer>
       <Processor>SpriteTextureProcessor</Processor>
       <Name>SlowMoEffect</Name>
+    </Content>
+    <Content Include="Content\SpeedPowerdownPlayer.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>SpeedPowerdownPlayer</Name>
     </Content>
     <Content Include="Content\TimePowerup.png">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>

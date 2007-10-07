@@ -7,8 +7,8 @@ namespace Precision.Classes
     class ExtraLifePowerup : nonRecurringPowerup
     {
         #region Constructors
-        internal ExtraLifePowerup(Texture2D texture, Color pickupTimeBarColor)
-            : base(texture, pickupTimeBarColor)
+        internal ExtraLifePowerup(Texture2D texture, List<Color> pickupTimeBarColors)
+            : base(texture, pickupTimeBarColors)
         {
             this.respawnTimeRemainingRandomModifier = Config.EXTRALIFE_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER;
             this.RespawnTime = Config.EXTRALIFE_POWERUP_RESPAWN_TIME;

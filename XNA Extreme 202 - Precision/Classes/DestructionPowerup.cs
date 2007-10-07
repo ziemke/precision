@@ -11,8 +11,8 @@ namespace Precision.Classes
         #endregion
 
         #region Constructors
-        internal DestructionPowerup(Texture2D texture, Texture2D playerTexture, Color activeTimeBarColor, Color pickupTimeBarColor)
-            : base(texture, activeTimeBarColor, pickupTimeBarColor)
+        internal DestructionPowerup(Texture2D texture, Texture2D playerTexture, Color activeTimeBarColor, List<Color> pickupTimeBarColors)
+            : base(texture, activeTimeBarColor, pickupTimeBarColors)
         {
             this.Position = -this.Origin;
             this.RespawnTime = Config.DESTRUCTION_POWERUP_RESPAWN_TIME;

@@ -23,7 +23,7 @@ namespace Precision.Classes
         #region new Draw
         new internal void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
-            this.color = GetLifeBarColor(colors, percent);
+            this.color = Game1.GetLifeBarColor(colors, percent);
 
             Vector2 origin = new Vector2((float)this.alignment, 0);
             Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(this.width * percent), height);
