@@ -94,7 +94,7 @@ namespace Precision.Classes
         #region  Draw
         internal void Draw(SpriteBatch spriteBatch)
         {
-           this.color = GetLifeBarColor(colors, percent);
+           this.color = Game1.GetLifeBarColor(colors, percent);
 
             Vector2 origin = new Vector2((float)this.alignment, 0);
             Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(this.width * percent), height);
@@ -104,26 +104,7 @@ namespace Precision.Classes
         }
         #endregion
 
-        #region Get Life Bar Color
-        protected Color GetLifeBarColor(List<Color> colors, float healthPercent)
-        {
-            if (colors.Count == 1)
-                return colors[0];
-
-            if (colors.Count >= 2)
-            {
-                byte startColor = (byte)((colors.Count - 1) * (percent != 1f ? percent : 0.99999f));
-
-                byte r = (byte)(MathHelper.Lerp(colors[startColor].R, colors[startColor + 1].R, healthPercent));
-                byte g = (byte)(MathHelper.Lerp(colors[startColor].G, colors[startColor + 1].G, healthPercent));
-                byte b = (byte)(MathHelper.Lerp(colors[startColor].B, colors[startColor + 1].B, healthPercent));
-
-                return new Color(r, g, b);
-            }
-
-            return Config.lifeBarColorDefault;
-        }
-        #endregion
+      
         #endregion
     }
 }

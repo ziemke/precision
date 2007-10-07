@@ -39,7 +39,7 @@ namespace Precision
         const float ENEMY_BASE_SPEED = 3f;
         const float ENEMY_SPEED_VARIATION = 1f;
 
-        const float CELL_DEATH_TIME = 2f;
+       
         private static Color cellHealthyColor = new Color(124, 207, 86);
         private static Color cellDeadColor = new Color(115, 95, 141);
         private static Color cellBarHealthyColor = new Color(0, 255, 0);
@@ -68,7 +68,7 @@ namespace Precision
         static float titleScreenFlick = 0;
 
         internal static Player player;
-        static Texture2D backgroundTexture, titleScreenTexture, titleScreenTextureNormal, titleScreenRolloverTexture, playerTexture, cellTexture, enemyTexture, overlayTexture, levelChangeTexture, timeTexture, extralifeTexture, shieldTexture, slowmoeffectTexture, scoreTexture, destructionTexture, destructionplayerTexture;
+        static Texture2D backgroundTexture, titleScreenTexture, titleScreenTextureNormal, titleScreenRolloverTexture, playerTexture, cellTexture, enemyTexture, overlayTexture, levelChangeTexture, timeTexture, extralifeTexture, shieldTexture, slowmoeffectTexture, scoreTexture, destructionTexture, destructionplayerTexture, speedplayerTexture;
         #endregion
 
         #region Properties
@@ -82,7 +82,6 @@ namespace Precision
             get { return BASE_NUM_ENEMIES * level; }
         }
         #endregion
-
 
         internal Game1()
         {
@@ -136,8 +135,9 @@ namespace Precision
                 extralifeTexture = content.Load<Texture2D>("Content/ExtraLifePowerup");
                 slowmoeffectTexture = content.Load<Texture2D>("Content/SlowMoEffect");
                 scoreTexture = content.Load<Texture2D>("Content/ScorePowerUp");
-                destructionTexture = content.Load<Texture2D>("Content/destructionPowerup");
-                destructionplayerTexture = content.Load<Texture2D>("Content/destructionPowerupPlayer");
+                destructionTexture = content.Load<Texture2D>("Content/DestructionPowerup");
+                destructionplayerTexture = content.Load<Texture2D>("Content/DestructionPowerupPlayer");
+                speedplayerTexture = content.Load<Texture2D>("Content/SpeedPowerdownPlayer");
 
                 titleScreenTexture = titleScreenTextureNormal;
 
@@ -237,9 +237,9 @@ namespace Precision
                                 direction = Vector2.Zero;
 
                             if (gamePadState.Buttons.B == ButtonState.Pressed)
-                                actor.Position += direction * PLAYER_SPEED_FAST;
+                                actor.Position += direction * PLAYER_SPEED_FAST * player.SlowDown;
                             else
-                                actor.Position += direction * PLAYER_SPEED_SLOW;
+                                actor.Position += direction * PLAYER_SPEED_SLOW * player.SlowDown;
 
                             Vector2 directionKeyboard = Vector2.Zero;
 
@@ -258,11 +258,11 @@ namespace Precision
                                 directionKeyboard = Vector2.Zero;
 
                             if (keyboardState.IsKeyDown(Keys.Y))
-                                actor.Position += directionKeyboard * PLAYER_SPEED_FAST;
+                                actor.Position += directionKeyboard * PLAYER_SPEED_FAST * player.SlowDown;
                             else
-                                actor.Position += directionKeyboard * PLAYER_SPEED_SLOW;
+                                actor.Position += directionKeyboard * PLAYER_SPEED_SLOW * player.SlowDown;
 
-                            actor.Position += direction;
+                         //   actor.Position += direction;
 
                             Vector2 playerPos = actor.Position;
                             if (playerPos.X < actor.Origin.X)
@@ -307,7 +307,7 @@ namespace Precision
 
                             if (timeUntilAttack <= 0 && cell.State == Cell.CellState.Healthy)
                             {
-                                cell.SetAttacked(CELL_DEATH_TIME);
+                                cell.SetAttacked(Config.CELL_DEATH_TIME);
                                 timeUntilAttack = cellAttackInterval;
                             }
 
@@ -424,12 +424,28 @@ namespace Precision
             Powerup.powerups.Clear();
             Bar.bars.Clear();
 
+            List<Color> timePowerupPickupTimeBarColors = new List<Color>();
+            timePowerupPickupTimeBarColors.Add(Config.timePowerupPickupTimeBarColor);
+            timePowerupPickupTimeBarColors.Add(Color.Gray);
+            new TimePowerup(timeTexture, Config.timePowerupActiveTimeBarColor, timePowerupPickupTimeBarColors);
 
-            new TimePowerup(timeTexture, Config.timePowerupActiveTimeBarColor, Config.timePowerupPickupTimeBarColor);
-            new ScorePowerup(scoreTexture, Config.scorePowerupActiveTimeBarColor, Config.scorePowerupPickupTimeBarColor);
-            new ExtraLifePowerup(extralifeTexture, Config.extralivePowerupPickupTimeBarColor);
-            new ShieldPowerup(shieldTexture, Config.shieldPowerupActiveTimeBarColor, Config.shieldPowerupPickupTimeBarColor);
-            new DestructionPowerup(destructionTexture, destructionplayerTexture, Config.destructionPowerupActiveTimeBarColor, Config.destructionPowerupPickupTimeBarColor);
+            List<Color> scorePowerupPickupTimeBarColors = new List<Color>();
+            scorePowerupPickupTimeBarColors.Add(Config.scorePowerupPickupTimeBarColor);
+            new ScorePowerup(scoreTexture, Config.scorePowerupActiveTimeBarColor, scorePowerupPickupTimeBarColors);
+
+            List<Color> extralifePowerupPickupTimeBarColors = new List<Color>();
+            extralifePowerupPickupTimeBarColors.Add(Config.extralifePowerupPickupTimeBarColor);
+            new ExtraLifePowerup(extralifeTexture, extralifePowerupPickupTimeBarColors);
+
+            List<Color> shieldPowerupPickupTimeBarColors = new List<Color>();
+            shieldPowerupPickupTimeBarColors.Add(Config.shieldPowerupPickupTimeBarColor);
+            new ShieldPowerup(shieldTexture, Config.shieldPowerupActiveTimeBarColor, shieldPowerupPickupTimeBarColors);
+
+            List<Color> destructionPowerupPickupTimeBarColors = new List<Color>();
+            destructionPowerupPickupTimeBarColors.Add(Config.destructionPowerupPickupTimeBarColor);
+            new DestructionPowerup(destructionTexture, destructionplayerTexture, Config.destructionPowerupActiveTimeBarColor, destructionPowerupPickupTimeBarColors);
+
+            new SpeedPowerdown(cellTexture, speedplayerTexture, Config.speedPowerdownActiveTimeBarColor, Config.speedPowerdownPickupTimeBarColors);
 
         }
         #endregion
@@ -523,6 +539,28 @@ namespace Precision
             return scale;
         }
         #endregion
+
+        #region Get Life Bar Color
+        internal static Color GetLifeBarColor(List<Color> colors, float healthPercent)
+        {
+            if (colors.Count == 1)
+                return colors[0];
+
+            if (colors.Count >= 2)
+            {
+                //byte startColor = (byte)((colors.Count - 1) * (percent != 1f ? percent : 0.99999f));
+                byte startColor = (byte)((colors.Count - 1) * healthPercent);
+
+                byte r = (byte)(MathHelper.Lerp(colors[startColor].R, colors[startColor + 1].R, healthPercent));
+                byte g = (byte)(MathHelper.Lerp(colors[startColor].G, colors[startColor + 1].G, healthPercent));
+                byte b = (byte)(MathHelper.Lerp(colors[startColor].B, colors[startColor + 1].B, healthPercent));
+
+                return new Color(r, g, b);
+            }
+
+            return Config.lifeBarColorDefault;
+        }
+        #endregion
         #endregion
 
         #region Screens
@@ -580,3 +618,4 @@ namespace Precision
         #endregion
     }
 }
+

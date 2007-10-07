@@ -7,8 +7,8 @@ namespace Precision.Classes
     class nonRecurringPowerup : Powerup
     {
         #region Constructors
-        internal nonRecurringPowerup(Texture2D texture, Color pickupTimeBarColor)
-            : base(texture, pickupTimeBarColor)
+        internal nonRecurringPowerup(Texture2D texture, List<Color> pickupTimeBarColors)
+            : base(texture, pickupTimeBarColors)
         {
         }
         #endregion

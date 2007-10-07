@@ -7,8 +7,8 @@ namespace Precision.Classes
     class ShieldPowerup : enduringPowerup
     {
         #region Constructors
-        internal ShieldPowerup(Texture2D texture, Color activeTimeBarColor, Color pickupTimeBarColor)
-            : base(texture, activeTimeBarColor, pickupTimeBarColor)
+        internal ShieldPowerup(Texture2D texture, Color activeTimeBarColor, List<Color> pickupTimeBarColors)
+            : base(texture, activeTimeBarColor, pickupTimeBarColors)
         {
             this.Position = -this.Origin;
             this.RespawnTime = Config.SHIELD_POWERUP_RESPAWN_TIME;

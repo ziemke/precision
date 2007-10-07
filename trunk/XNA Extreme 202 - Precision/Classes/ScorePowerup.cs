@@ -7,8 +7,8 @@ namespace Precision.Classes
     class ScorePowerup : enduringPowerup
     {
         #region Constructors
-        internal ScorePowerup(Texture2D texture, Color activeTimeBarColor, Color pickupTimeBarColor)
-            : base(texture, activeTimeBarColor, pickupTimeBarColor)
+        internal ScorePowerup(Texture2D texture, Color activeTimeBarColor, List<Color> pickupTimeBarColors)
+            : base(texture, activeTimeBarColor, pickupTimeBarColors)
         {
             this.Position = -this.Origin;
             this.RespawnTime = Config.SCORE_POWERUP_RESPAWN_TIME;

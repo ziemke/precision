@@ -20,8 +20,8 @@ namespace Precision.Classes
         #endregion
 
         #region Constructors
-        internal TimePowerup(Texture2D texture, Color activeTimeBarColor, Color pickupTimeBarColor)
-            : base(texture, activeTimeBarColor, pickupTimeBarColor)
+        internal TimePowerup(Texture2D texture, Color activeTimeBarColor, List<Color> pickupTimeBarColors)
+            : base(texture, activeTimeBarColor, pickupTimeBarColors)
         {
             this.Position = -this.Origin;
             this.respawnTimeRemainingRandomModifier = Config.TIME_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER;

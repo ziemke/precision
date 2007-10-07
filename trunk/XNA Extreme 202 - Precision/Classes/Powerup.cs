@@ -44,12 +44,12 @@ namespace Precision.Classes
 	    #endregion
 
         #region Constructors
-        internal Powerup(Texture2D texture, Color pickupTimeBarColor)
+        internal Powerup(Texture2D texture, List<Color> pickupTimeBarColors)
             : base(texture)
         {
             powerups.Add(this);
-            List<Color> pickupTimeBarColorList = new List<Color>();
-            pickupTimeBarColorList.Add(pickupTimeBarColor);
+            List<Color> pickupTimeBarColorList = new List<Color>(pickupTimeBarColors);
+            //pickupTimeBarColorList.Add();
             this.pickupTimeBar = new BackgroundBar(this.texture.Width, Config.PICKUP_TIMEBAR_HEIGHT, pickupTimeBarColorList);
             this.pickupTimeBar.Position = -this.Origin;
             this.pickupTimeBar.Alignment = Bar.BarAlignment.Left;
