@@ -38,7 +38,8 @@ namespace Precision.Classes
         protected override void Activate()
         {
             Actor.TimeScale = this.slowDownPercent;
-            Game1.slowMoEffect.Visible = true;
+            //Game1.slowMoEffect.Visible = true;
+            Game1.showSlowMotionEffect = true;
             base.Activate();
         }
         #endregion
@@ -47,7 +48,8 @@ namespace Precision.Classes
         protected override void Deactivate()
         {
             Actor.TimeScale = 1f;
-            Game1.slowMoEffect.Visible = false;
+            //Game1.slowMoEffect.Visible = false;
+            Game1.showSlowMotionEffect = false;
             base.Deactivate();
         }
         
