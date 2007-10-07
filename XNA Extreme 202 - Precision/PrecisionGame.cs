@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Precision.Classes;
+using Mahdi.Khodadadi.PostProcessing;
 #endregion
 
 namespace Precision
@@ -28,6 +29,8 @@ namespace Precision
         Color overlayColorPause = new Color(255, 255, 255, 128);
         static Random random;
         GameState gameState;
+        PostProcess ppe;
+
 
         internal const int SCREEN_WIDTH = 800;
         internal const int SCREEN_HEIGHT = 600;
@@ -66,6 +69,8 @@ namespace Precision
         internal static SlowMoEffect slowMoEffect;
 
         static float titleScreenFlick = 0;
+
+        internal static bool showSlowMotionEffect = false;
 
         internal static Player player;
         static Texture2D backgroundTexture, titleScreenTexture, titleScreenTextureNormal, titleScreenRolloverTexture, playerTexture, cellTexture, enemyTexture, overlayTexture, levelChangeTexture, timeTexture, extralifeTexture, shieldTexture, slowmoeffectTexture, scoreTexture, destructionTexture, destructionplayerTexture, speedplayerTexture;
@@ -140,6 +145,8 @@ namespace Precision
                 speedplayerTexture = content.Load<Texture2D>("Content/SpeedPowerdownPlayer");
 
                 titleScreenTexture = titleScreenTextureNormal;
+
+                ppe = new PostProcess(graphics.GraphicsDevice);
 
             }
 
@@ -410,6 +417,25 @@ namespace Precision
             }
             spriteBatch.End();
 
+            if (showSlowMotionEffect)
+            {
+                ppe.ResolveBackBuffer();
+
+                //ppe.ApplyDownSample();
+                ppe.ApplyDownSample();
+
+                //ppe.ApplyUpSample();
+                ppe.ApplyUpSample();
+                
+
+                //ppe.ApplyRadialBlur();
+
+                ppe.Present(null);
+            }
+
+
+
+
             base.Draw(gameTime);
         }
 
@@ -548,7 +574,6 @@ namespace Precision
 
             if (colors.Count >= 2)
             {
-                //byte startColor = (byte)((colors.Count - 1) * (percent != 1f ? percent : 0.99999f));
                 byte startColor = (byte)((colors.Count - 1) * healthPercent);
 
                 byte r = (byte)(MathHelper.Lerp(colors[startColor].R, colors[startColor + 1].R, healthPercent));
