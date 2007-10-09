@@ -14,6 +14,8 @@ namespace Precision.Classes
             this.RespawnTime = Config.SHIELD_POWERUP_RESPAWN_TIME;
             this.ActiveTime = Config.SHIELD_POWERUP_DURATION;
             this.DefaultPickupTime = Config.SHIELD_POWERUP_PICKUP_TIME;
+            this.frequency = Config.SHIELD_POWERUP_FREQUENCY;
+            this.startLevel = Config.SHIELD_POWERUP_START_LEVEL;
         }
         #endregion
 
@@ -22,8 +24,8 @@ namespace Precision.Classes
         protected override void Activate()
         {
            
-            Game1.player.InvincibilityTime = Config.SHIELD_POWERUP_DURATION;
-            Game1.player.overlayTextures.Add(this.texture);
+            PrecisionGame.player.InvincibilityTime = Config.SHIELD_POWERUP_DURATION;
+            PrecisionGame.player.overlayTextures.Add(this.texture);
 
             base.Activate();
         }
@@ -33,8 +35,8 @@ namespace Precision.Classes
         protected override void Deactivate()
         {
           
-            Game1.player.InvincibilityTime = 0;
-            Game1.player.overlayTextures.Remove(this.texture);
+            PrecisionGame.player.InvincibilityTime = 0;
+            PrecisionGame.player.overlayTextures.Remove(this.texture);
 
             base.Deactivate();
         }

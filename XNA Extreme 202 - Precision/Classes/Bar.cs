@@ -83,18 +83,28 @@ namespace Precision.Classes
             for (int i = 0; i < bars.Count; i++)
             {
                 BackgroundBar backgroundBar = bars[i] as BackgroundBar;
-                if (backgroundBar != null)
-                    backgroundBar.Draw(spriteBatch);
-                else
+                if (backgroundBar == null)
                     bars[i].Draw(spriteBatch);
             }
         }
         #endregion
-        
+
+        #region DrawBackgroundBars
+        internal static void DrawBackgroundBars(SpriteBatch spriteBatch)
+        {
+            for (int i = 0; i < bars.Count; i++)
+            {
+                BackgroundBar backgroundBar = bars[i] as BackgroundBar;
+                if (backgroundBar != null)
+                    backgroundBar.Draw(spriteBatch);
+            }
+        }
+        #endregion
+
         #region  Draw
         internal void Draw(SpriteBatch spriteBatch)
         {
-           this.color = Game1.GetLifeBarColor(colors, percent);
+           this.color = PrecisionGame.GetLifeBarColor(colors, percent);
 
             Vector2 origin = new Vector2((float)this.alignment, 0);
             Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(this.width * percent), height);

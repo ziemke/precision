@@ -12,9 +12,10 @@ namespace Precision.Classes
 
         protected float respawnTime;
         protected float respawnTimeRemaining;
-        protected float respawnTimeRemainingRandomModifier;
+        protected float frequency;
         protected float pickupTime;
         protected float pickupTimeRemaining;
+        protected int startLevel;
         #endregion
 
         #region Properties
@@ -22,7 +23,7 @@ namespace Precision.Classes
         {
             get { return respawnTime; }
             set { respawnTime = value;
-            respawnTimeRemaining = value + Game1.Range(0, respawnTimeRemainingRandomModifier);
+            respawnTimeRemaining = value + PrecisionGame.Range(0, frequency);
             }
         }
 
@@ -49,7 +50,6 @@ namespace Precision.Classes
         {
             powerups.Add(this);
             List<Color> pickupTimeBarColorList = new List<Color>(pickupTimeBarColors);
-            //pickupTimeBarColorList.Add();
             this.pickupTimeBar = new BackgroundBar(this.texture.Width, Config.PICKUP_TIMEBAR_HEIGHT, pickupTimeBarColorList);
             this.pickupTimeBar.Position = -this.Origin;
             this.pickupTimeBar.Alignment = Bar.BarAlignment.Left;
@@ -65,16 +65,17 @@ namespace Precision.Classes
         #region Update
         internal override void  Update(GameTime gameTime)
         {
+            if (this.startLevel > PrecisionGame.level) return;
             if (this.respawnTimeRemaining > 0f && pickupTimeRemaining <= 0f)
             {
                 this.respawnTimeRemaining -= (float)gameTime.ElapsedGameTime.TotalSeconds * TimeScale;
 
-                if (this.respawnTimeRemaining <= 0f)
+                if (this.respawnTimeRemaining <= 0f && PrecisionGame.Range(0f, 1f) < this.frequency)
                 {
                     int c = 0;
                     do
                     {
-                        this.Position = Game1.GetRandomScreenPosition(this.Radius + Config.PICKUP_TIMEBAR_HEIGHT / 2 + 2);
+                        this.Position = PrecisionGame.GetRandomScreenPosition(this.Radius + Config.PICKUP_TIMEBAR_HEIGHT / 2 + 2);
                         c++;
                     }
                     while (this.CheckCollisionWithAny() && c < Config.POWERUP_PLACEMENT_RETRYCOUNT);
@@ -92,7 +93,6 @@ namespace Precision.Classes
                 this.pickupTimeBar.Percent = this.pickupTimeRemaining / this.pickupTime;
                 if (this.pickupTimeRemaining <= 0f)
                 {
-                    this.respawnTimeRemaining = this.respawnTime + Game1.Range(0, respawnTimeRemainingRandomModifier);
                     this.pickupTimeBar.Position = -this.Origin;
                     this.Position = -this.Origin;
                 }
@@ -128,16 +128,6 @@ namespace Precision.Classes
         private Vector2 GetPickupTimePosition()
         {
             return new Vector2(this.Position.X - this.Origin.X, this.Position.Y - this.Origin.Y - Config.PICKUP_TIMEBAR_HEIGHT - 2);
-        }
-        #endregion
-
-        #region Begin Level
-        internal virtual void BeginLevel()
-        {
-            this.Position = -this.Origin;
-            this.pickupTimeBar.Position = -this.Origin;
-            if (this.respawnTimeRemaining <= 0f) this.respawnTimeRemaining = this.respawnTime + Game1.Range(0, respawnTimeRemainingRandomModifier);
-            this.pickupTimeRemaining = 0f;
         }
         #endregion
         #endregion

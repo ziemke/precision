@@ -19,6 +19,8 @@ namespace Precision.Classes
             this.ActiveTime = Config.SPEED_POWERDOWN_DURATION;
             this.DefaultPickupTime = Config.SPEED_POWERDOWN_PICKUP_TIME;
             this.playerTexture = playerTexture;
+            this.frequency = Config.SPEED_POWERDOWN_FREQUENCY;
+            this.startLevel = Config.SPEED_POWERDOWN_START_LEVEL;
         }
         #endregion
 
@@ -27,8 +29,8 @@ namespace Precision.Classes
         protected override void Activate()
         {
 
-            Game1.player.SlowDown = Config.SPEED_POWERDOWN_SLOWDOWN;
-            Game1.player.overlayTextures.Add(this.playerTexture);
+            PrecisionGame.player.SlowDown = Config.SPEED_POWERDOWN_SLOWDOWN;
+            PrecisionGame.player.overlayTextures.Add(this.playerTexture);
 
             base.Activate();
         }
@@ -38,8 +40,8 @@ namespace Precision.Classes
         protected override void Deactivate()
         {
 
-            Game1.player.SlowDown = 1f;
-            Game1.player.overlayTextures.Remove(this.playerTexture);
+            PrecisionGame.player.SlowDown = 1f;
+            PrecisionGame.player.overlayTextures.Remove(this.playerTexture);
 
             base.Deactivate();
         }

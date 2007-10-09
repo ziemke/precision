@@ -14,7 +14,9 @@ namespace Precision.Classes
             this.RespawnTime = Config.SCORE_POWERUP_RESPAWN_TIME;
             this.ActiveTime = Config.SCORE_POWERUP_DURATION;
             this.DefaultPickupTime = Config.SCORE_POWERUP_PICKUP_TIME;
-            this.activeTimeBar.Position = new Vector2(Game1.SCREEN_WIDTH / 2, 3 * Config.ACTIVE_TIMEBAR_HEIGHT);
+            this.activeTimeBar.Position = new Vector2(PrecisionGame.SCREEN_WIDTH / 2, 3 * Config.ACTIVE_TIMEBAR_HEIGHT);
+            this.startLevel = Config.SCORE_POWERUP_START_LEVEL;
+            this.frequency = Config.SCORE_POWERUP_FREQUENCY;
         }
         #endregion
 
@@ -22,7 +24,7 @@ namespace Precision.Classes
         #region override Activate
         protected override void Activate()
         {
-            Game1.scoreMultiplicator *= 2;
+            PrecisionGame.scoreMultiplicator *= 2;
             base.Activate();
         }
         #endregion
@@ -30,7 +32,7 @@ namespace Precision.Classes
         #region override Deactivate
         protected override void Deactivate()
         {
-            Game1.scoreMultiplicator /= 2;
+            PrecisionGame.scoreMultiplicator /= 2;
             base.Deactivate();
         }
         

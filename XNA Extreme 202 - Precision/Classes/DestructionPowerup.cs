@@ -19,6 +19,8 @@ namespace Precision.Classes
             this.ActiveTime = Config.DESTRUCTION_POWERUP_DURATION;
             this.DefaultPickupTime = Config.DESTRUCTION_POWERUP_PICKUP_TIME;
             this.playerTexture = playerTexture;
+            this.frequency = Config.DESTRUCTION_POWERUP_FREQUENCY;
+            this.startLevel = Config.DESTRUCTION_POWERUP_START_LEVEL;
         }
         #endregion
 
@@ -35,7 +37,7 @@ namespace Precision.Classes
                     Enemy enemy = actor as Enemy;
                     if (enemy != null)
                     {
-                        if (Actor.CheckCollision(enemy, Game1.player))
+                        if (Actor.CheckCollision(enemy, PrecisionGame.player))
                             enemy.Kill();
 
                         continue;
@@ -45,7 +47,7 @@ namespace Precision.Classes
                     if (cell != null)
                     {
 
-                        if (Actor.CheckCollision(cell, Game1.player))
+                        if (Actor.CheckCollision(cell, PrecisionGame.player))
                             cell.Kill();
                     }
                 }
@@ -57,8 +59,8 @@ namespace Precision.Classes
         #region override Activate
         protected override void Activate()
         {
-            Game1.player.InvincibilityTime = Config.DESTRUCTION_POWERUP_DURATION;
-            Game1.player.overlayTextures.Add(this.playerTexture);
+            PrecisionGame.player.InvincibilityTime = Config.DESTRUCTION_POWERUP_DURATION;
+            PrecisionGame.player.overlayTextures.Add(this.playerTexture);
 
             base.Activate();
         }
@@ -67,7 +69,7 @@ namespace Precision.Classes
         #region override Deactivate
         protected override void Deactivate()
         {
-            Game1.player.overlayTextures.Remove(this.playerTexture);
+            PrecisionGame.player.overlayTextures.Remove(this.playerTexture);
             
             base.Deactivate();
         }
