@@ -9,7 +9,7 @@ namespace Precision
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (PrecisionGame game = new PrecisionGame())
             {
                 game.Run();
             }

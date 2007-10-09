@@ -108,10 +108,6 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>Powerup</Name>
     </Compile>
-    <Compile Include="Classes\SlowMoEffect.cs">
-      <XNAUseContentPipeline>false</XNAUseContentPipeline>
-      <Name>SlowMoEffect</Name>
-    </Compile>
     <Compile Include="Classes\SpeedPowerdown.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>SpeedPowerdown</Name>
@@ -153,111 +149,15 @@
       <Processor>SpriteTextureProcessor</Processor>
       <Name>SpeedPowerdownPlayer</Name>
     </Content>
-    <Content Include="Content\Background.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>Background</Name>
-    </Content>
-    <Content Include="Content\Cell.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>Cell</Name>
-    </Content>
-    <Content Include="Content\DestructionPowerup.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>DestructionPowerup</Name>
-    </Content>
-    <Content Include="Content\DestructionPowerupPlayer.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>DestructionPowerupPlayer</Name>
-    </Content>
-    <Content Include="Content\Enemy.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>Enemy</Name>
-    </Content>
-    <Content Include="Content\ExtraLifePowerup.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>ExtraLifePowerup</Name>
-    </Content>
-    <Content Include="Content\Fill22.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>Fill22</Name>
-    </Content>
-    <Content Include="Content\Font1.spritefont">
+    <Content Include="Content\Xirod1.spritefont">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
-      <Name>Font1</Name>
-    </Content>
-    <Content Include="Content\LevelChangeScreen.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>LevelChangeScreen</Name>
+      <Name>Xirod1</Name>
     </Content>
     <Content Include="Content\Mahdi.Khodadadi.PostProcessing.dll">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>Mahdi.Khodadadi.PostProcessing</Name>
-    </Content>
-    <Content Include="Content\Player.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>Player</Name>
-    </Content>
-    <Content Include="Content\ScorePowerUp.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>ScorePowerUp</Name>
-    </Content>
-    <Content Include="Content\ShieldPowerup.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>ShieldPowerup</Name>
-    </Content>
-    <Content Include="Content\SlowMoEffect.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>SlowMoEffect</Name>
-    </Content>
-    <Content Include="Content\SpeedPowerdownPlayer.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>SpeedPowerdownPlayer</Name>
-    </Content>
-    <Content Include="Content\TimePowerup.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>TimePowerup</Name>
-    </Content>
-    <Content Include="Content\TitleScreen.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>TitleScreen</Name>
-    </Content>
-    <Content Include="Content\TitleScreenRollover.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>TitleScreenRollover</Name>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

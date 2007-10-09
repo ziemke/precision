@@ -30,7 +30,7 @@ namespace Precision.Classes
             this.activeTimeBar = new Bar(Config.ACTIVE_TIMEBAR_WIDTH, Config.ACTIVE_TIMEBAR_HEIGHT, activeTimeBarColorList);
             this.activeTimeBar.Alignment = Bar.BarAlignment.Center;
             this.activeTimeBar.Percent = 0f;
-            iconScale = Game1.ScaleToFit(new Vector2(this.texture.Width, this.texture.Height), new Vector2(Config.ACTIVE_TIMEBAR_ICON_SIZE));
+            iconScale = PrecisionGame.ScaleToFit(new Vector2(this.texture.Width, this.texture.Height), new Vector2(Config.ACTIVE_TIMEBAR_ICON_SIZE));
         }
         #endregion
 
@@ -45,7 +45,6 @@ namespace Precision.Classes
                 if (this.activeTimeRemaining <= 0f)
                 {
                     this.Deactivate();
-                    this.respawnTimeRemaining = this.respawnTime + Game1.Range(0, respawnTimeRemainingRandomModifier);
                     this.activeTimeBar.Percent = 0f;
                 }
             }
@@ -88,7 +87,7 @@ namespace Precision.Classes
                 {
                     for (int i = Bar.bars.Count - 1; i > 0; i--)
                     {
-                        Vector2 desiredPosition = new Vector2(Game1.SCREEN_WIDTH / 2, (Config.ACTIVE_TIMEBAR_ICON_SIZE + 10) * (Bar.bars.Count - i));
+                        Vector2 desiredPosition = new Vector2(PrecisionGame.SCREEN_WIDTH / 2, (Config.ACTIVE_TIMEBAR_ICON_SIZE + 10) * (Bar.bars.Count - i));
 
                         BackgroundBar backgroundBar = bar as BackgroundBar;
                         if (backgroundBar != null) break;
@@ -101,19 +100,10 @@ namespace Precision.Classes
 
                 }
                 else
-                    return (new Vector2(Game1.SCREEN_WIDTH / 2, Config.ACTIVE_TIMEBAR_ICON_SIZE + 10) - subOrigin);
+                    return (new Vector2(PrecisionGame.SCREEN_WIDTH / 2, Config.ACTIVE_TIMEBAR_ICON_SIZE + 10) - subOrigin);
             }
 
             return Vector2.Zero;
-        }
-        #endregion
-
-        #region override beginLevel
-        internal override void BeginLevel()
-        {
-            this.activeTimeBar.Percent = 0f;
-            this.activeTimeRemaining = 0f;
-            base.BeginLevel();
         }
         #endregion
 

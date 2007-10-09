@@ -76,8 +76,8 @@ namespace Precision.Classes
                     cellCount--;
                     Bar.bars.Remove(this.lifeBar);
                     this.lifeBar = null;
-                    Game1.AddEnemyAdd(this.Position);
-                    Game1.currentScoreValue -= Game1.CELL_DEATH_PENALTY;
+                    PrecisionGame.AddEnemyAdd(this.Position);
+                    PrecisionGame.currentScoreValue -= PrecisionGame.CELL_DEATH_PENALTY;
                 }
 
                 this.tint = this.Lerp(deadColor, healthyColor, lifePercent);
@@ -98,9 +98,9 @@ namespace Precision.Classes
             {
                 this.deathTime = deathTime;
                 this.state = CellState.Attacked;
-              
+
                 lifeBar = new BackgroundBar(this.texture.Width, LIFEBAR_HEIGHT, lifeBarColorList);
-                this.lifeBar.Position = new Vector2(this.Position.X - this.Origin.X, this.Position.Y - this.Origin.Y - LIFEBAR_HEIGHT - 2);
+                this.lifeBar.Position = new Vector2(this.Position.X - this.Origin.X, this.Position.Y + this.Origin.Y + 2);
             }
         }
         #endregion
@@ -128,7 +128,7 @@ namespace Precision.Classes
                 int c = 0;
                 do
                 {
-                    cell.Position = Game1.GetRandomScreenPosition(cell.Radius);
+                    cell.Position = PrecisionGame.GetRandomScreenPosition(cell.Radius);
                     c++;
                 }
                 while (cell.CheckCollisionWithAny() && c < CELL_PLACEMENT_RETRYCOUNT);
@@ -164,7 +164,7 @@ namespace Precision.Classes
             cellCount--;
             Bar.bars.Remove(this.lifeBar);
             this.lifeBar = null;
-            Game1.currentScoreValue -= Game1.CELL_DEATH_PENALTY;
+            PrecisionGame.currentScoreValue -= PrecisionGame.CELL_DEATH_PENALTY;
             this.lifePercent = -0.1f;
             this.tint = deadColor;
         }

@@ -43,7 +43,7 @@ namespace Precision.Classes
 
             this.Scale = 0f;
             this.StartScale(1f, ENEMY_SCALE_TIME);
-            this.BaseRotateSpeed = Game1.Range(-ENEMY_MAX_ROTATE_BASE_SPEED, ENEMY_MAX_ROTATE_BASE_SPEED);
+            this.BaseRotateSpeed = PrecisionGame.Range(-ENEMY_MAX_ROTATE_BASE_SPEED, ENEMY_MAX_ROTATE_BASE_SPEED);
         
         }
         #endregion
@@ -77,9 +77,9 @@ namespace Precision.Classes
         private void SetRandomMove() {
 
             this.pointA = this.Position;
-            this.pointB = Game1.GetRandomScreenPosition(this.Radius);
+            this.pointB = PrecisionGame.GetRandomScreenPosition(this.Radius);
 
-            this.moveTime = baseSpeed + Game1.Range(-speedVariation, speedVariation);
+            this.moveTime = baseSpeed + PrecisionGame.Range(-speedVariation, speedVariation);
             this.amount = 0;
         }
         #endregion
@@ -98,7 +98,7 @@ namespace Precision.Classes
             for (int i = 0; i < numEnemies; i++)
             {
                 Enemy enemy = new Enemy(texture, baseSpeed, speedVariation);
-                enemy.Position = Game1.GetRandomScreenPosition(enemy.Radius);
+                enemy.Position = PrecisionGame.GetRandomScreenPosition(enemy.Radius);
             }
         }
         #endregion

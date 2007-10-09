@@ -24,12 +24,13 @@ namespace Precision.Classes
             : base(texture, activeTimeBarColor, pickupTimeBarColors)
         {
             this.Position = -this.Origin;
-            this.respawnTimeRemainingRandomModifier = Config.TIME_POWERUP_RESPAWN_TIME_RANDOM_MODIFIER;
+            this.frequency = Config.TIME_POWERUP_FREQUENCY;
             this.RespawnTime = Config.TIME_POWERUP_RESPAWN_TIME;
             this.ActiveTime = Config.TIME_POWERUP_DURATION;
             this.SlowDownPercent = Config.TIME_POWERUP_SLOWDOWN;
             this.DefaultPickupTime = Config.TIME_POWERUP_PICKUP_TIME;
-            this.activeTimeBar.Position = new Vector2(Game1.SCREEN_WIDTH / 2, Config.ACTIVE_TIMEBAR_HEIGHT);
+            this.activeTimeBar.Position = new Vector2(PrecisionGame.SCREEN_WIDTH / 2, Config.ACTIVE_TIMEBAR_HEIGHT);
+            this.startLevel = Config.TIME_POWERUP_START_LEVEL;
         }
         #endregion
 
@@ -38,8 +39,7 @@ namespace Precision.Classes
         protected override void Activate()
         {
             Actor.TimeScale = this.slowDownPercent;
-            //Game1.slowMoEffect.Visible = true;
-            Game1.showSlowMotionEffect = true;
+            PrecisionGame.showSlowMotionEffect = true;
             base.Activate();
         }
         #endregion
@@ -48,8 +48,7 @@ namespace Precision.Classes
         protected override void Deactivate()
         {
             Actor.TimeScale = 1f;
-            //Game1.slowMoEffect.Visible = false;
-            Game1.showSlowMotionEffect = false;
+            PrecisionGame.showSlowMotionEffect = false;
             base.Deactivate();
         }
         
