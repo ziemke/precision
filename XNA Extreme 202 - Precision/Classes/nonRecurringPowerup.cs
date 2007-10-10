@@ -17,7 +17,7 @@ namespace Precision.Classes
         #region Pickup
         internal override void Pickup()
         {
-            this.respawnTimeRemaining = this.respawnTime + PrecisionGame.Range(-frequency, frequency);
+            this.respawnTimeRemaining = this.respawnTime;
 
             base.Pickup();
         }

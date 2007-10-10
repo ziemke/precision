@@ -23,7 +23,7 @@ namespace Precision.Classes
         {
             get { return respawnTime; }
             set { respawnTime = value;
-            respawnTimeRemaining = value + PrecisionGame.Range(0, frequency);
+            respawnTimeRemaining = value;
             }
         }
 

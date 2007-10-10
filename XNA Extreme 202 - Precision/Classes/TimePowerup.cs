@@ -53,6 +53,10 @@ namespace Precision.Classes
         }
         
         #endregion
+        internal override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
         #endregion
     }
 }

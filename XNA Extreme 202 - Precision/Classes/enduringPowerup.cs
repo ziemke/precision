@@ -46,8 +46,12 @@ namespace Precision.Classes
                 {
                     this.Deactivate();
                     this.activeTimeBar.Percent = 0f;
+                    this.respawnTimeRemaining = this.RespawnTime;
                 }
             }
+
+            if(this.pickupTimeRemaining <= 0 && this.activeTimeRemaining <= 0 && this.respawnTimeRemaining <= 0)
+                this.respawnTimeRemaining = this.RespawnTime;
 
             base.Update(gameTime);
         }
@@ -58,6 +62,7 @@ namespace Precision.Classes
         internal override void Pickup()
         {
             this.activeTimeRemaining = this.activeTime;
+            this.activeTimeBar.Position = GetActiveTimeBarPosition();
             this.Activate();
 
             base.Pickup();
@@ -67,13 +72,13 @@ namespace Precision.Classes
         #region Activate
         protected virtual void Activate()
         { 
-            this.activeTimeBar.Position = GetActiveTimeBarPosition();
         }
         #endregion
 
         #region Deactivate
         protected virtual void Deactivate()
-        { }
+        {
+        }
         #endregion
 
         #region Get activeTimeBar Position
