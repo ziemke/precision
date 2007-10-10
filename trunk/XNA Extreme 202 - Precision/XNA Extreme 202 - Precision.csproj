@@ -143,12 +143,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Classes\SpeedPowerdownPlayer.png">
-      <XNAUseContentPipeline>true</XNAUseContentPipeline>
-      <Importer>TextureImporter</Importer>
-      <Processor>SpriteTextureProcessor</Processor>
-      <Name>SpeedPowerdownPlayer</Name>
-    </Content>
     <Content Include="Content\Xirod1.spritefont">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>
       <Importer>FontDescriptionImporter</Importer>
