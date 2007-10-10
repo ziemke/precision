@@ -28,17 +28,17 @@ namespace Precision.Classes
         internal static readonly Color timePowerupPickupTimeBarColor = Color.White;
         internal const float TIME_POWERUP_SLOWDOWN = 0.1f;
 
-        internal const float EXTRALIFE_POWERUP_RESPAWN_TIME = 5f;
+        internal const float EXTRALIFE_POWERUP_RESPAWN_TIME = 5f; // 5
         internal const float EXTRALIFE_POWERUP_FREQUENCY = 1f;
         internal const float EXTRALIFE_POWERUP_PICKUP_TIME = 5f;
-        internal const int EXTRALIFE_POWERUP_START_LEVEL = 1; //2
+        internal const int EXTRALIFE_POWERUP_START_LEVEL = 2; //2
         internal static readonly Color extralifePowerupPickupTimeBarColor = Color.White;
 
         internal const float SCORE_POWERUP_DURATION = 3f;
         internal const float SCORE_POWERUP_RESPAWN_TIME = 5f;
         internal const float SCORE_POWERUP_FREQUENCY = 1f;
         internal const float SCORE_POWERUP_PICKUP_TIME = 5f;
-        internal const int SCORE_POWERUP_START_LEVEL = 1; //3
+        internal const int SCORE_POWERUP_START_LEVEL = 3; //3
         internal static readonly Color scorePowerupActiveTimeBarColor = Color.Orange;
         internal static readonly Color scorePowerupPickupTimeBarColor = Color.White;
 
@@ -46,7 +46,7 @@ namespace Precision.Classes
         internal const float SHIELD_POWERUP_RESPAWN_TIME = 5f;
         internal const float SHIELD_POWERUP_FREQUENCY = 1f;
         internal const float SHIELD_POWERUP_PICKUP_TIME = 5f;
-        internal const int SHIELD_POWERUP_START_LEVEL = 1; //5
+        internal const int SHIELD_POWERUP_START_LEVEL = 5; //5
         internal static readonly Color shieldPowerupActiveTimeBarColor = Color.LightBlue;
         internal static readonly Color shieldPowerupPickupTimeBarColor = Color.White;
 
@@ -54,7 +54,7 @@ namespace Precision.Classes
         internal const float DESTRUCTION_POWERUP_RESPAWN_TIME = 5f;
         internal const float DESTRUCTION_POWERUP_FREQUENCY = 1f;
         internal const float DESTRUCTION_POWERUP_PICKUP_TIME = 5f;
-        internal const int DESTRUCTION_POWERUP_START_LEVEL = 1;//7
+        internal const int DESTRUCTION_POWERUP_START_LEVEL = 7;//7
         internal static readonly Color destructionPowerupActiveTimeBarColor = Color.Red;
         internal static readonly Color destructionPowerupPickupTimeBarColor = Color.White;
         
@@ -62,7 +62,7 @@ namespace Precision.Classes
         internal const float SPEED_POWERDOWN_RESPAWN_TIME = 5f;
         internal const float SPEED_POWERDOWN_FREQUENCY = 1f;
         internal const float SPEED_POWERDOWN_PICKUP_TIME = CELL_DEATH_TIME;
-        internal const int SPEED_POWERDOWN_START_LEVEL = 1; //2
+        internal const int SPEED_POWERDOWN_START_LEVEL = 2; //2
         internal static readonly Color speedPowerdownActiveTimeBarColor = Color.Red;
         internal static readonly List<Color> speedPowerdownPickupTimeBarColors;
         internal const float SPEED_POWERDOWN_SLOWDOWN = 0.4f;
