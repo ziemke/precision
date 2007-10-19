@@ -10,7 +10,6 @@
     <AssemblyName>XNA Extreme 202 - Precision</AssemblyName>
     <XnaFrameworkVersion>v1.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
-    <ApplicationIcon>Game.ico</ApplicationIcon>
     <XNAGlobalContentPipelineAssemblies>Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll;Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll;Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll;Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</XNAGlobalContentPipelineAssemblies>
     <XNAProjectContentPipelineAssemblies>
     </XNAProjectContentPipelineAssemblies>
@@ -53,6 +52,8 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +84,14 @@
     <Compile Include="Classes\Enemy.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>Enemy</Name>
+    </Compile>
+    <Compile Include="Classes\HighScore.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>HighScore</Name>
+    </Compile>
+    <Compile Include="Classes\ScaleDownLifePowerUp.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ScaleDownLifePowerUp</Name>
     </Compile>
     <Compile Include="Classes\nonRecurringPowerup.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
@@ -129,6 +138,21 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>PrecisionGame</Name>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\info.aspspider\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\localhost\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico">
@@ -143,6 +167,114 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\XBOX360 Controller Buttons\bumper_left.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>bumper_left</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\bumper_right.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>bumper_right</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\button_a.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>button_a</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\button_b.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>button_b</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\button_back.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>button_back</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\button_start.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>button_start</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\button_x.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>button_x</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\button_y.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>button_y</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\dpad_down.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>dpad_down</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\dpad_left.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>dpad_left</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\dpad_leftright.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>dpad_leftright</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\dpad_right.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>dpad_right</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\dpad_up.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>dpad_up</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\preview.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>preview</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\stick_left.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>stick_left</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\stick_right.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>stick_right</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\trigger_left.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>trigger_left</Name>
+    </Content>
+    <Content Include="Content\XBOX360 Controller Buttons\trigger_right.png">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>TextureImporter</Importer>
+      <Processor>SpriteTextureProcessor</Processor>
+      <Name>trigger_right</Name>
+    </Content>
     <Content Include="Content\Xirod1.spritefont">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>
       <Importer>FontDescriptionImporter</Importer>
@@ -153,10 +285,92 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>Mahdi.Khodadadi.PostProcessing</Name>
     </Content>
+    <None Include="app.config" />
+    <Content Include="Content\Arial1.spritefont">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Name>Arial1</Name>
+    </Content>
+    <Content Include="Content\Xirod2.spritefont">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Name>Xirod2</Name>
+    </Content>
+    <None Include="Content\XBOX360 Controller Buttons\XBOX 360 Buttons %28Photoshop%29.psd">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>XBOX 360 Buttons %28Photoshop%29</Name>
+    </None>
+    <None Include="Web References\info.aspspider\HighScore.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\info.aspspider\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Reference</Name>
+    </None>
+    <None Include="Web References\info.aspspider\Service1.disco">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Service1</Name>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Settings</Name>
+    </None>
+    <None Include="Web References\info.aspspider\Service1.wsdl">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Service1</Name>
+    </None>
+    <None Include="Web References\localhost\HighScore.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Reference</Name>
+    </None>
+    <None Include="Web References\localhost\Service1.disco">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Service1</Name>
+    </None>
+    <None Include="Web References\localhost\Service1.wsdl">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Service1</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://aspspider.info/precision/HighScore/Service1.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\info.aspspider\</RelPath>
+      <UpdateFromURL>http://aspspider.info/precision/HighScore/Service1.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>XNA_Extreme_202___Precision_info_aspspider_Service1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:57007/Service1.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhost\</RelPath>
+      <UpdateFromURL>http://localhost:57007/Service1.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>XNA_Extreme_202___Precision_localhost_Service1</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA\Game Studio Express\v1.0\Microsoft.Xna.ContentPipeline.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA\Game Studio Express\v1.0\Microsoft.Xna.Common.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
