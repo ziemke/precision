@@ -42,5 +42,41 @@ namespace Precision.Properties {
                 return ((string)(this["XNA_Extreme_202___Precision_info_aspspider_Service1"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int difficulty {
+            get {
+                return ((int)(this["difficulty"]));
+            }
+            set {
+                this["difficulty"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string selectedGraphicsSet {
+            get {
+                return ((string)(this["selectedGraphicsSet"]));
+            }
+            set {
+                this["selectedGraphicsSet"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool fullscreen {
+            get {
+                return ((bool)(this["fullscreen"]));
+            }
+            set {
+                this["fullscreen"] = value;
+            }
+        }
     }
 }

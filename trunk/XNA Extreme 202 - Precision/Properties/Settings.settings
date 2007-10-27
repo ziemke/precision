@@ -8,5 +8,14 @@
     <Setting Name="XNA_Extreme_202___Precision_info_aspspider_Service1" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://aspspider.info/precision/HighScore/Service1.asmx</Value>
     </Setting>
+    <Setting Name="difficulty" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="selectedGraphicsSet" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="fullscreen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
