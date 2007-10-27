@@ -31,7 +31,6 @@ namespace Precision.Classes
             this.activeTimeBar.Alignment = Bar.BarAlignment.Center;
             this.activeTimeBar.Percent = 0f;
             iconScale = PrecisionGame.ScaleToFit(new Vector2(this.texture.Width, this.texture.Height), new Vector2(Config.ACTIVE_TIMEBAR_ICON_SIZE));
-     //       iconScale = 1;
         }
         #endregion
 

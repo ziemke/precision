@@ -6,17 +6,18 @@ namespace Precision.Classes
 {
     class Config
     {
-        internal const float CELL_DEATH_TIME = 2f;
+        internal const float CELL_DEATH_TIME_GENERIC = 2f;
+        internal const float CELL_DEATH_TIME_EASY = 5f;
 
         internal const float TITLE_SCREEN_FLICK_DURATION = 1.5f;
-
+        
         internal const int POWERUP_PLACEMENT_RETRYCOUNT = 100;
 
         internal const int ACTIVE_TIMEBAR_WIDTH = 400;
         internal const int ACTIVE_TIMEBAR_HEIGHT = 10;
         internal const int ACTIVE_TIMEBAR_ICON_SIZE = 30;
         //protected const int PICKUP_TIMEBAR_WIDTH = 50;
-        internal const int PICKUP_TIMEBAR_HEIGHT = 10;
+        internal const int PICKUP_TIMEBAR_HEIGHT = 7; //10
         internal static readonly Color lifeBarColorDefault = Color.Green;
 
         internal const float TIME_POWERUP_DURATION = 3f;
@@ -59,16 +60,16 @@ namespace Precision.Classes
 
         internal const float DESTRUCTION_POWERUP_DURATION = 5f;
         internal const float DESTRUCTION_POWERUP_RESPAWN_TIME = 4f;
-        internal const float DESTRUCTION_POWERUP_FREQUENCY = 0.4f;
+        internal const float DESTRUCTION_POWERUP_FREQUENCY = 1f;//0.4
         internal const float DESTRUCTION_POWERUP_PICKUP_TIME = 6f;
-        internal const int DESTRUCTION_POWERUP_START_LEVEL = 9;
+        internal const int DESTRUCTION_POWERUP_START_LEVEL = 0;//9
         internal static readonly Color destructionPowerupActiveTimeBarColor = Color.Red;
         internal static readonly Color destructionPowerupPickupTimeBarColor = Color.White;
         
         internal const float SPEED_POWERDOWN_DURATION = 10f;
         internal const float SPEED_POWERDOWN_RESPAWN_TIME = 5f;
         internal const float SPEED_POWERDOWN_FREQUENCY = 0.8f;
-        internal const float SPEED_POWERDOWN_PICKUP_TIME = CELL_DEATH_TIME;
+        internal const float SPEED_POWERDOWN_PICKUP_TIME = CELL_DEATH_TIME_GENERIC;
         internal const int SPEED_POWERDOWN_START_LEVEL = 2; //2
         internal static readonly Color speedPowerdownActiveTimeBarColor = Color.Red;
         internal static readonly List<Color> speedPowerdownPickupTimeBarColors;

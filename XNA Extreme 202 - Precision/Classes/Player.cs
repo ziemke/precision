@@ -59,14 +59,14 @@ namespace Precision.Classes
         internal void DrawOverlayTextures(SpriteBatch spriteBatch)
         {
                 foreach (Texture2D overlayTexture in overlayTextures)
-                    spriteBatch.Draw(overlayTexture, this.Position, null, this.tint, this.rotate, this.Origin, PrecisionGame.ScaleToFit(new Vector2(overlayTexture.Width, overlayTexture.Height), new Vector2(this.texture.Width, this.texture.Height)), SpriteEffects.None, 1f);
+                    spriteBatch.Draw(overlayTexture, this.Position, null, this.tint, this.rotate, new Vector2(overlayTexture.Width / 2, overlayTexture.Height / 2), 1f, SpriteEffects.None, 1f);
         }
         #endregion
 
         #region Reset
         internal void Reset(float invincibilityTime)
         {
-            this.Position = new Vector2(PrecisionGame.SCREEN_WIDTH / 2, PrecisionGame.SCREEN_HEIGHT / 2);
+            this.Position = new Vector2(PrecisionGame.SCREEN_WIDTH / 2 , PrecisionGame.SCREEN_HEIGHT / 2);
             this.invincibilityTime = invincibilityTime;
             this.Flicker = true;
         }
