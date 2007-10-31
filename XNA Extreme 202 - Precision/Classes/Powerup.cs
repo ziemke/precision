@@ -53,6 +53,7 @@ namespace Precision.Classes
             this.pickupTimeBar = new BackgroundBar(this.texture.Width, Config.PICKUP_TIMEBAR_HEIGHT, pickupTimeBarColorList);
             this.pickupTimeBar.Position = -this.Origin;
             this.pickupTimeBar.Alignment = Bar.BarAlignment.Left;
+            this.pickupTimeBar.Percent = 1f;
         }
 
         static Powerup()

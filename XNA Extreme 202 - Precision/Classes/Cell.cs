@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -100,6 +101,7 @@ namespace Precision.Classes
                 this.state = CellState.Attacked;
 
                 lifeBar = new BackgroundBar(this.texture.Width, LIFEBAR_HEIGHT, lifeBarColorList);
+                lifeBar.Percent = 1f;
                 this.lifeBar.Position = new Vector2(this.Position.X - this.Origin.X, this.Position.Y + this.Origin.Y + 2);
             }
         }
