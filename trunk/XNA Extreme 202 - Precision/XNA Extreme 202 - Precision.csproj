@@ -90,6 +90,10 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>HighScore</Name>
     </Compile>
+    <Compile Include="Classes\Input.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Input</Name>
+    </Compile>
     <Compile Include="Classes\ScaleDownLifePowerUp.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>ScaleDownLifePowerUp</Name>
@@ -129,6 +133,10 @@
     <Compile Include="Classes\ExtraLifePowerUp.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>ExtraLifePowerUp</Name>
+    </Compile>
+    <Compile Include="Classes\Vibration.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Vibration</Name>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs">

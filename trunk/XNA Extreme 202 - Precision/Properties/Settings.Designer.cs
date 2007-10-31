@@ -78,5 +78,17 @@ namespace Precision.Properties {
                 this["fullscreen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Player1")]
+        public string playerName {
+            get {
+                return ((string)(this["playerName"]));
+            }
+            set {
+                this["playerName"] = value;
+            }
+        }
     }
 }

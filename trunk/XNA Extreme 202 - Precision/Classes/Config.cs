@@ -18,7 +18,6 @@ namespace Precision.Classes
         internal const int ACTIVE_TIMEBAR_ICON_SIZE = 30;
         //protected const int PICKUP_TIMEBAR_WIDTH = 50;
         internal const int PICKUP_TIMEBAR_HEIGHT = 7; //10
-        internal static readonly Color lifeBarColorDefault = Color.Green;
 
         internal const float TIME_POWERUP_DURATION = 3f;
         internal const float TIME_POWERUP_RESPAWN_TIME = 1f;
