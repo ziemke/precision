@@ -97,11 +97,10 @@ namespace Precision.Classes
         internal void SetAttacked(float deathTime) {
             if (this.state == CellState.Healthy)
             {
-                this.deathTime = deathTime;
-                this.state = CellState.Attacked;
-
                 lifeBar = new BackgroundBar(this.texture.Width, LIFEBAR_HEIGHT, lifeBarColorList);
                 lifeBar.Percent = 1f;
+                this.deathTime = deathTime;
+                this.state = CellState.Attacked;
                 this.lifeBar.Position = new Vector2(this.Position.X - this.Origin.X, this.Position.Y + this.Origin.Y + 2);
             }
         }
@@ -111,8 +110,8 @@ namespace Precision.Classes
         internal void Saved() {
             if (this.state != CellState.Saved)
             {
-                this.StartScale(0f, CELL_SAVING_TIME);
-                this.state = CellState.Saved;
+               this.state = CellState.Saved;
+               this.StartScale(0f, CELL_SAVING_TIME);
 
                 Bar.bars.Remove(this.lifeBar);
                 this.lifeBar = null;
@@ -157,20 +156,20 @@ namespace Precision.Classes
         }
         #endregion
 
-        #region Kill
-        internal void Kill()
-        {
-            if (this.state == CellState.Dead) return;
+        //#region Kill
+        //internal void Kill()
+        //{
+        //    if (this.state == CellState.Dead) return;
 
-            this.state = CellState.Dead;
-            cellCount--;
-            Bar.bars.Remove(this.lifeBar);
-            this.lifeBar = null;
-            PrecisionGame.currentScoreValue -= PrecisionGame.CELL_DEATH_PENALTY;
-            this.lifePercent = -0.1f;
-            this.tint = deadColor;
-        }
-        #endregion
+        //    this.state = CellState.Dead;
+        //    cellCount--;
+        //    Bar.bars.Remove(this.lifeBar);
+        //    this.lifeBar = null;
+        //    PrecisionGame.currentScoreValue -= PrecisionGame.CELL_DEATH_PENALTY;
+        //    this.lifePercent = -0.1f;
+        //    this.tint = deadColor;
+        //}
+        //#endregion
         #endregion
     }
 }

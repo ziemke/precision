@@ -37,19 +37,19 @@ namespace Precision.Classes
                     Enemy enemy = actor as Enemy;
                     if (enemy != null)
                     {
-                        if (Actor.CheckCollision(enemy, PrecisionGame.player))
+                        if (Actor.CheckCollision(enemy, PrecisionGame.player) || (Actor.CheckCollision(enemy, PrecisionGame.player2) && PrecisionGame.isCoopMode))
                             enemy.Kill();
 
                         continue;
                     }
 
-                    Cell cell = actor as Cell;
-                    if (cell != null)
-                    {
+                    //Cell cell = actor as Cell;
+                    //if (cell != null)
+                    //{
 
-                        if (Actor.CheckCollision(cell, PrecisionGame.player))
-                            cell.Kill();
-                    }
+                    //  if (Actor.CheckCollision(cell, PrecisionGame.player) || (Actor.CheckCollision(cell, PrecisionGame.player2) && PrecisionGame.isCoopMode))
+                    //        cell.Kill();
+                    //}
                 }
             }
             base.Update(gameTime);
@@ -61,6 +61,11 @@ namespace Precision.Classes
         {
             PrecisionGame.player.InvincibilityTime = Config.DESTRUCTION_POWERUP_DURATION;
             PrecisionGame.player.overlayTextures.Add(this.playerTexture);
+            if (PrecisionGame.isCoopMode)
+            {
+                PrecisionGame.player2.InvincibilityTime = Config.DESTRUCTION_POWERUP_DURATION;
+                PrecisionGame.player2.overlayTextures.Add(this.playerTexture);
+            }
 
             base.Activate();
         }
@@ -70,7 +75,7 @@ namespace Precision.Classes
         protected override void Deactivate()
         {
             PrecisionGame.player.overlayTextures.Remove(this.playerTexture);
-            
+            if (PrecisionGame.isCoopMode) PrecisionGame.player2.overlayTextures.Remove(this.playerTexture);
             base.Deactivate();
         }
         #endregion
