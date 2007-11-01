@@ -24,10 +24,110 @@ namespace Precision.Classes
 
         #region Properties
         #region Keyboard
-        
+        internal static KeyboardState KeyboardState
+        {
+            get { return keyboardState; }
+        }
+
+        internal static bool KeyboardEnterPressed
+        {
+            get { return keyboardState.IsKeyDown(Keys.Enter); }
+        }
+
+        internal static bool KeyboardEnterJustPressed
+        {
+            get
+            {
+                return keyboardState.IsKeyDown(Keys.Enter)
+              && keyboardStateLastFrame.IsKeyUp(Keys.Enter);
+            }
+        }
+
+
+        internal static bool KeyboardBackPressed
+        {
+            get { return keyboardState.IsKeyDown(Keys.Back); }
+        }
+
+        internal static bool KeyboardBackJustPressed
+        {
+            get
+            {
+                return keyboardState.IsKeyDown(Keys.Back)
+              && keyboardStateLastFrame.IsKeyUp(Keys.Back);
+            }
+        }
+
+
+
+        internal static bool KeyboardUpPressed
+        {
+            get { return keyboardState.IsKeyDown(Keys.Up); }
+        }
+
+        internal static bool KeyboardUpJustPressed
+        {
+            get
+            {
+                return keyboardState.IsKeyDown(Keys.Up)
+              && keyboardStateLastFrame.IsKeyUp(Keys.Up);
+            }
+        }
+
+
+        internal static bool KeyboardDownPressed
+        {
+            get { return keyboardState.IsKeyDown(Keys.Down); }
+        }
+
+        internal static bool KeyboardDownJustPressed
+        {
+            get
+            {
+                return keyboardState.IsKeyDown(Keys.Down)
+              && keyboardStateLastFrame.IsKeyUp(Keys.Down);
+            }
+        }
+
+
+        internal static bool KeyboardLeftPressed
+        {
+            get { return keyboardState.IsKeyDown(Keys.Left); }
+        }
+
+        internal static bool KeyboardLeftJustPressed
+        {
+            get
+            {
+                return keyboardState.IsKeyDown(Keys.Left)
+              && keyboardStateLastFrame.IsKeyUp(Keys.Left);
+            }
+        }
+
+
+        internal static bool KeyboardRightPressed
+        {
+            get { return keyboardState.IsKeyDown(Keys.Right); }
+        }
+
+        internal static bool KeyboardRightJustPressed
+        {
+            get
+            {
+                return keyboardState.IsKeyDown(Keys.Right)
+              && keyboardStateLastFrame.IsKeyUp(Keys.Right);
+            }
+        }
+
+
         #endregion
 
         #region Game Pad
+        internal static GamePadState GamePadState
+        {
+            get { return gamePadState; }
+        }
+
         internal static bool GamePadStartPressed
         {
             get { return gamePadState.Buttons.Start == ButtonState.Pressed; }
@@ -35,8 +135,11 @@ namespace Precision.Classes
 
         internal static bool GamePadStartJustPressed
         {
-            get { return gamePadState.Buttons.Start == ButtonState.Pressed
-                && gamePadStateLastFrame.Buttons.Start == ButtonState.Released; }
+            get
+            {
+                return gamePadState.Buttons.Start == ButtonState.Pressed
+              && gamePadStateLastFrame.Buttons.Start == ButtonState.Released;
+            }
         }
 
 
@@ -147,8 +250,11 @@ namespace Precision.Classes
 
         internal static bool GamePadUpPressed
         {
-            get { return gamePadState.DPad.Up == ButtonState.Pressed
-                || gamePadState.ThumbSticks.Left.Y > 0.5f; }
+            get
+            {
+                return gamePadState.DPad.Up == ButtonState.Pressed
+              || gamePadState.ThumbSticks.Left.Y > 0.75f;
+            }
         }
 
         internal static bool GamePadUpJustPressed
@@ -156,8 +262,8 @@ namespace Precision.Classes
             get
             {
                 return (gamePadState.DPad.Up == ButtonState.Pressed
-                    && gamePadState.DPad.Up == ButtonState.Released)
-                    || (gamePadState.ThumbSticks.Left.Y > 0.5f && gamePadState.ThumbSticks.Left.Y < 0.5f);
+                    && gamePadStateLastFrame.DPad.Up == ButtonState.Released)
+                    || (gamePadState.ThumbSticks.Left.Y > 0.75f && gamePadStateLastFrame.ThumbSticks.Left.Y < 0.75f);
             }
         }
 
@@ -167,7 +273,7 @@ namespace Precision.Classes
             get
             {
                 return gamePadState.DPad.Down == ButtonState.Pressed
-              || gamePadState.ThumbSticks.Left.Y < 0.5f;
+              || gamePadState.ThumbSticks.Left.Y < -0.75f;
             }
         }
 
@@ -176,8 +282,8 @@ namespace Precision.Classes
             get
             {
                 return (gamePadState.DPad.Down == ButtonState.Pressed
-                    && gamePadState.DPad.Down == ButtonState.Released)
-                    || (gamePadState.ThumbSticks.Left.Y < 0.5f && gamePadState.ThumbSticks.Left.Y > 0.5f);
+                    && gamePadStateLastFrame.DPad.Down == ButtonState.Released)
+                    || (gamePadState.ThumbSticks.Left.Y < -0.75f && gamePadStateLastFrame.ThumbSticks.Left.Y > -0.75f);
             }
         }
 
@@ -187,7 +293,7 @@ namespace Precision.Classes
             get
             {
                 return gamePadState.DPad.Left == ButtonState.Pressed
-              || gamePadState.ThumbSticks.Left.X < -0.5f;
+              || gamePadState.ThumbSticks.Left.X < -0.75f;
             }
         }
 
@@ -196,8 +302,8 @@ namespace Precision.Classes
             get
             {
                 return (gamePadState.DPad.Left == ButtonState.Pressed
-                    && gamePadState.DPad.Left == ButtonState.Released)
-                    || (gamePadState.ThumbSticks.Left.X < -0.5f && gamePadState.ThumbSticks.Left.X > -0.5f);
+                    && gamePadStateLastFrame.DPad.Left == ButtonState.Released)
+                    || (gamePadState.ThumbSticks.Left.X < -0.75f && gamePadStateLastFrame.ThumbSticks.Left.X > -0.75f);
             }
         }
 
@@ -207,7 +313,7 @@ namespace Precision.Classes
             get
             {
                 return gamePadState.DPad.Right == ButtonState.Pressed
-              || gamePadState.ThumbSticks.Right.X > -0.5f;
+              || gamePadState.ThumbSticks.Left.X > -0.75f;
             }
         }
 
@@ -216,8 +322,8 @@ namespace Precision.Classes
             get
             {
                 return (gamePadState.DPad.Right == ButtonState.Pressed
-                    && gamePadState.DPad.Right == ButtonState.Released)
-                    || (gamePadState.ThumbSticks.Right.X > -0.5f && gamePadState.ThumbSticks.Right.X < -0.5f);
+                    && gamePadStateLastFrame.DPad.Right == ButtonState.Released)
+                    || (gamePadState.ThumbSticks.Left.X > 0.75f && gamePadStateLastFrame.ThumbSticks.Left.X < 0.75f);
             }
         }
 
@@ -236,6 +342,30 @@ namespace Precision.Classes
 
             gamePadStateLastFrame = gamePadState;
             gamePadState = GamePad.GetState(Microsoft.Xna.Framework.PlayerIndex.One);
+        }
+        #endregion
+
+        #region KeyboardKeyPressed
+        /// <summary>
+        /// Checks if the specified key is pressed
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        internal static bool KeyboardKeyPressed(Keys key)
+        {
+            return keyboardState.IsKeyDown(key);
+        }
+        #endregion
+
+        #region KeyboardKeyJustPressed
+        /// <summary>
+        /// Checks if the specified key was just pressed
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        internal static bool KeyboardKeyJustPressed(Keys key)
+        {
+            return keyboardState.IsKeyDown(key) && keyboardStateLastFrame.IsKeyUp(key);
         }
         #endregion
         #endregion

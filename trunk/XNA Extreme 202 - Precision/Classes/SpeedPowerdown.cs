@@ -32,6 +32,12 @@ namespace Precision.Classes
             PrecisionGame.player.SlowDown = Config.SPEED_POWERDOWN_SLOWDOWN;
             PrecisionGame.player.overlayTextures.Add(this.playerTexture);
 
+            if (PrecisionGame.isCoopMode)
+            {
+                PrecisionGame.player2.SlowDown = Config.SPEED_POWERDOWN_SLOWDOWN;
+                PrecisionGame.player2.overlayTextures.Add(this.playerTexture);
+            }
+
             base.Activate();
         }
         #endregion
@@ -42,6 +48,12 @@ namespace Precision.Classes
 
             PrecisionGame.player.SlowDown = 1f;
             PrecisionGame.player.overlayTextures.Remove(this.playerTexture);
+
+            if (PrecisionGame.isCoopMode)
+            {
+                PrecisionGame.player2.SlowDown = 1f;
+                PrecisionGame.player2.overlayTextures.Remove(this.playerTexture);
+            }
 
             base.Deactivate();
         }

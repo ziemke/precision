@@ -59,9 +59,9 @@ namespace Precision.Classes
 
         internal const float DESTRUCTION_POWERUP_DURATION = 5f;
         internal const float DESTRUCTION_POWERUP_RESPAWN_TIME = 4f;
-        internal const float DESTRUCTION_POWERUP_FREQUENCY = 1f;//0.4
+        internal const float DESTRUCTION_POWERUP_FREQUENCY = 0.4f;//0.4
         internal const float DESTRUCTION_POWERUP_PICKUP_TIME = 6f;
-        internal const int DESTRUCTION_POWERUP_START_LEVEL = 0;//9
+        internal const int DESTRUCTION_POWERUP_START_LEVEL = 9;//9
         internal static readonly Color destructionPowerupActiveTimeBarColor = Color.Red;
         internal static readonly Color destructionPowerupPickupTimeBarColor = Color.White;
         

@@ -26,6 +26,12 @@ namespace Precision.Classes
         /// Intensities of the vibrations
         /// </summary>
         private float speedLeft, speedRight;
+
+        /// <summary>
+        /// Target Player
+        /// </summary>
+        private PlayerIndex playerIndex;
+
         #endregion
 
         #region Properties
@@ -46,6 +52,13 @@ namespace Precision.Classes
             get { return speedRight; }
             set { speedRight = value; }
         }
+
+        public PlayerIndex PlayerIndex
+        {
+            get { return playerIndex; }
+            set { playerIndex = value; }
+        }
+	
         #endregion
 
         #region Contructors
@@ -54,13 +67,14 @@ namespace Precision.Classes
             vibrations = new List<Vibration>();
         }
 
-        public Vibration(float speedLeft, float speedRight, TimeSpan duration)
+        public Vibration(PlayerIndex playerIndex, float speedLeft, float speedRight, TimeSpan duration)
         {
-            vibrations.Add(this);
-
+            this.playerIndex = playerIndex;
             this.speedLeft = speedLeft;
             this.speedRight = speedRight;
             this.duration = duration;
+
+            vibrations.Add(this);
         }
         #endregion
 
@@ -79,18 +93,57 @@ namespace Precision.Classes
             }
 
             //Now calucalte the overall speeds
-            float overallSpeedLeft = 0f, overallSpeedRight = 0f;
+            float overallSpeedLeftPlayer1 = 0f, overallSpeedRightPlayer1 = 0f,
+                overallSpeedLeftPlayer2 = 0f, overallSpeedRightPlayer2 = 0f,
+                overallSpeedLeftPlayer3 = 0f, overallSpeedRightPlayer3 = 0f,
+                overallSpeedLeftPlayer4 = 0f, overallSpeedRightPlayer4 = 0f;
 
             for (int i = vibrations.Count - 1; i >= 0; i--)
             {
-                overallSpeedLeft += vibrations[i].SpeedLeft;
-                overallSpeedRight += vibrations[i].SpeedRight;
+                switch (vibrations[i].playerIndex)
+                {
+                    
+                    case PlayerIndex.One:
+                        overallSpeedLeftPlayer1 += vibrations[i].SpeedLeft;
+                        overallSpeedRightPlayer1 += vibrations[i].SpeedRight;
+                        break;
+                    case PlayerIndex.Two:
+                        overallSpeedLeftPlayer2 += vibrations[i].SpeedLeft;
+                        overallSpeedRightPlayer2 += vibrations[i].SpeedRight;
+                        break;
+                    case PlayerIndex.Three:
+                        overallSpeedLeftPlayer3 += vibrations[i].SpeedLeft;
+                        overallSpeedRightPlayer3 += vibrations[i].SpeedRight;
+                        break;
+                    case PlayerIndex.Four:
+                        overallSpeedLeftPlayer4 += vibrations[i].SpeedLeft;
+                        overallSpeedRightPlayer4 += vibrations[i].SpeedRight;
+                        break;
+                    default:
+                        break;
+                }
+               
             }
 
-            overallSpeedLeft = MathHelper.Clamp(overallSpeedLeft, 0f, 1f);
-            overallSpeedRight = MathHelper.Clamp(overallSpeedRight, 0f, 1f);
+            //Clamp them all
+            overallSpeedLeftPlayer1 = MathHelper.Clamp(overallSpeedLeftPlayer1, 0f, 1f);
+            overallSpeedRightPlayer1 = MathHelper.Clamp(overallSpeedRightPlayer1, 0f, 1f);
 
-            GamePad.SetVibration(PlayerIndex.One, overallSpeedLeft, overallSpeedRight);
+            overallSpeedLeftPlayer2 = MathHelper.Clamp(overallSpeedLeftPlayer2, 0f, 1f);
+            overallSpeedRightPlayer2 = MathHelper.Clamp(overallSpeedRightPlayer2, 0f, 1f);
+
+            overallSpeedLeftPlayer3 = MathHelper.Clamp(overallSpeedLeftPlayer3, 0f, 1f);
+            overallSpeedRightPlayer3 = MathHelper.Clamp(overallSpeedRightPlayer3, 0f, 1f);
+
+            overallSpeedLeftPlayer4 = MathHelper.Clamp(overallSpeedLeftPlayer4, 0f, 1f);
+            overallSpeedRightPlayer4 = MathHelper.Clamp(overallSpeedRightPlayer4, 0f, 1f);
+
+
+            GamePad.SetVibration(PlayerIndex.One, overallSpeedLeftPlayer1, overallSpeedRightPlayer1);
+            GamePad.SetVibration(PlayerIndex.Two, overallSpeedLeftPlayer2, overallSpeedRightPlayer2);
+            GamePad.SetVibration(PlayerIndex.Three, overallSpeedLeftPlayer3, overallSpeedRightPlayer3);
+            GamePad.SetVibration(PlayerIndex.Four, overallSpeedLeftPlayer4, overallSpeedRightPlayer4);
+
         }
         #endregion
 
@@ -122,9 +175,9 @@ namespace Precision.Classes
         /// <param name="speedLeft"></param>
         /// <param name="speedRight"></param>
         /// <param name="duration"></param>
-        internal static void SetVibration(float speedLeft, float speedRight, TimeSpan duration)
+        internal static void SetVibration(PlayerIndex playerIndex, float speedLeft, float speedRight, TimeSpan duration)
         {
-            new Vibration(speedLeft, speedRight, duration);
+            new Vibration(playerIndex, speedLeft, speedRight, duration);
         }
         #endregion
         #endregion
