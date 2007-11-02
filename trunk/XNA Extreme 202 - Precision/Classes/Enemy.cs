@@ -18,6 +18,8 @@ namespace Precision.Classes
 
         private float amount;
         float moveTime;
+
+        bool isDying;
         #endregion
 
         #region Properties
@@ -30,6 +32,13 @@ namespace Precision.Classes
         {
             get { return amount; }
         }
+
+        public bool IsDying
+        {
+            get { return isDying; }
+            set { isDying = value; }
+        }
+	
         #endregion
 
         #region Constructors
@@ -44,6 +53,8 @@ namespace Precision.Classes
             this.Scale = 0f;
             this.StartScale(1f, ENEMY_SCALE_TIME);
             this.BaseRotateSpeed = PrecisionGame.Range(-ENEMY_MAX_ROTATE_BASE_SPEED, ENEMY_MAX_ROTATE_BASE_SPEED);
+
+            isDying = false;
         
         }
         #endregion
@@ -107,6 +118,7 @@ namespace Precision.Classes
         internal void Kill()
         {
             StartScale(-1, 3f);
+            isDying = true;
         }
         #endregion
         #endregion

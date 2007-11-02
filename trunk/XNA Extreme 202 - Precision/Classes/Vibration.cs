@@ -170,14 +170,31 @@ namespace Precision.Classes
 
         #region SetVibration
         /// <summary>
-        /// Creates a new Vibration
+        /// Creates A vibration
         /// </summary>
+        /// <param name="playerIndex">null == all players</param>
         /// <param name="speedLeft"></param>
         /// <param name="speedRight"></param>
         /// <param name="duration"></param>
-        internal static void SetVibration(PlayerIndex playerIndex, float speedLeft, float speedRight, TimeSpan duration)
+        internal static void SetVibration(PlayerIndex? playerIndex, float speedLeft, float speedRight, TimeSpan duration)
         {
-            new Vibration(playerIndex, speedLeft, speedRight, duration);
+
+            if (playerIndex != null) new Vibration((PlayerIndex)playerIndex, speedLeft, speedRight, duration);
+            else
+            {
+
+                new Vibration(PlayerIndex.One, speedLeft, speedRight, duration);
+                new Vibration(PlayerIndex.Two, speedLeft, speedRight, duration);
+                new Vibration(PlayerIndex.Three, speedLeft, speedRight, duration);
+                new Vibration(PlayerIndex.Four, speedLeft, speedRight, duration);
+            }
+        }
+        #endregion
+
+        #region StopAll
+        internal static void StopAll()
+        {
+            vibrations.Clear();
         }
         #endregion
         #endregion

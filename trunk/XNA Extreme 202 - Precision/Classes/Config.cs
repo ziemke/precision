@@ -59,9 +59,9 @@ namespace Precision.Classes
 
         internal const float DESTRUCTION_POWERUP_DURATION = 5f;
         internal const float DESTRUCTION_POWERUP_RESPAWN_TIME = 4f;
-        internal const float DESTRUCTION_POWERUP_FREQUENCY = 0.4f;//0.4
+        internal const float DESTRUCTION_POWERUP_FREQUENCY = 1f;//0.4
         internal const float DESTRUCTION_POWERUP_PICKUP_TIME = 6f;
-        internal const int DESTRUCTION_POWERUP_START_LEVEL = 9;//9
+        internal const int DESTRUCTION_POWERUP_START_LEVEL = 1;//9
         internal static readonly Color destructionPowerupActiveTimeBarColor = Color.Red;
         internal static readonly Color destructionPowerupPickupTimeBarColor = Color.White;
         
@@ -73,6 +73,8 @@ namespace Precision.Classes
         internal static readonly Color speedPowerdownActiveTimeBarColor = Color.Red;
         internal static readonly List<Color> speedPowerdownPickupTimeBarColors;
         internal const float SPEED_POWERDOWN_SLOWDOWN = 0.4f;
+
+        internal static readonly List<Point> resolutions;
         
         
         static Config()
@@ -81,6 +83,12 @@ namespace Precision.Classes
             speedPowerdownPickupTimeBarColors.Add(Color.Red);
             speedPowerdownPickupTimeBarColors.Add(Color.Yellow);
             speedPowerdownPickupTimeBarColors.Add(Color.Green);
+
+            resolutions = new List<Point>();
+            resolutions.Add(new Point(800, 600));
+            resolutions.Add(new Point(1024, 768));
+            resolutions.Add(new Point(1152, 864));
+            resolutions.Add(new Point(1280, 960));
         }
     }
 }
