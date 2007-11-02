@@ -20,5 +20,11 @@
     <Setting Name="playerName" Type="System.String" Scope="User">
       <Value Profile="(Default)">Player1</Value>
     </Setting>
+    <Setting Name="rumble" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="resolution" Type="Microsoft.Xna.Framework.Point" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -90,5 +90,28 @@ namespace Precision.Properties {
                 this["playerName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool rumble {
+            get {
+                return ((bool)(this["rumble"]));
+            }
+            set {
+                this["rumble"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.Xna.Framework.Point resolution {
+            get {
+                return ((global::Microsoft.Xna.Framework.Point)(this["resolution"]));
+            }
+            set {
+                this["resolution"] = value;
+            }
+        }
     }
 }

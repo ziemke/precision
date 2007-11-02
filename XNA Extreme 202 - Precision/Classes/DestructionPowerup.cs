@@ -37,8 +37,11 @@ namespace Precision.Classes
                     Enemy enemy = actor as Enemy;
                     if (enemy != null)
                     {
-                        if (Actor.CheckCollision(enemy, PrecisionGame.player) || (Actor.CheckCollision(enemy, PrecisionGame.player2) && PrecisionGame.isCoopMode))
+                        if (!enemy.IsDying && Actor.CheckCollision(enemy, PrecisionGame.player) || (Actor.CheckCollision(enemy, PrecisionGame.player2) && PrecisionGame.isCoopMode))
+                        {
+                            Vibration.SetVibration(null, 0.3f, 0.3f, new System.TimeSpan(0, 0, 0, 0, 200));
                             enemy.Kill();
+                        }
 
                         continue;
                     }
