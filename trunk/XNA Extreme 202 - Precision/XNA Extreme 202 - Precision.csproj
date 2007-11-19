@@ -62,6 +62,10 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>Actor</Name>
     </Compile>
+    <Compile Include="Classes\Audio.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Audio</Name>
+    </Compile>
     <Compile Include="Classes\Bar.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>Bar</Name>
@@ -298,7 +302,10 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>Mahdi.Khodadadi.PostProcessing</Name>
     </Content>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>app</Name>
+    </None>
     <Content Include="Content\Arial1.spritefont">
       <XNAUseContentPipeline>true</XNAUseContentPipeline>
       <Importer>FontDescriptionImporter</Importer>
@@ -310,6 +317,12 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Name>Xirod2</Name>
+    </Content>
+    <Content Include="Content\Sounds\precision_sounds.xap">
+      <XNAUseContentPipeline>true</XNAUseContentPipeline>
+      <Importer>XactImporter</Importer>
+      <Processor>XactProcessor</Processor>
+      <Name>precision_sounds</Name>
     </Content>
     <None Include="Content\XBOX360 Controller Buttons\XBOX 360 Buttons %28Photoshop%29.psd">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>

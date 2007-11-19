@@ -68,7 +68,7 @@ namespace Precision.Classes
         #region override Draw
         internal override void Draw(SpriteBatch spriteBatch)
         {
-            if (PrecisionGame.isCoopMode) spriteBatch.Draw(PrecisionGame.graphicsSetsContents[PrecisionGame.selectedGraphicsSet]["overlay"], new Rectangle((int)this.Position.X - (int)this.Origin.X, (int)this.Position.Y - (int)this.Origin.Y - 5, (int)this.texture.Width, 4), (this.playerID == 1) ? Color.Blue : Color.Green);
+            if (PrecisionGame.isCoopMode && this.Visible) spriteBatch.Draw(PrecisionGame.graphicsSetsContents[PrecisionGame.selectedGraphicsSet]["overlay"], new Rectangle((int)this.Position.X - (int)this.Origin.X, (int)this.Position.Y - (int)this.Origin.Y - 5, (int)this.texture.Width, 4), (this.playerID == 1) ? Color.Blue : Color.White);
             base.Draw(spriteBatch);
         }
         #endregion

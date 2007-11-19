@@ -35,25 +35,25 @@ namespace Precision.Classes
         #endregion
 
         #region Properties
-        public TimeSpan Duration
+        internal TimeSpan Duration
         {
             get { return duration; }
             set { duration = value; }
         }
 
-        public float SpeedLeft
+        internal float SpeedLeft
         {
             get { return speedLeft; }
             set { speedLeft = value; }
         }
 
-        public float SpeedRight
+        internal float SpeedRight
         {
             get { return speedRight; }
             set { speedRight = value; }
         }
 
-        public PlayerIndex PlayerIndex
+        internal PlayerIndex PlayerIndex
         {
             get { return playerIndex; }
             set { playerIndex = value; }
@@ -67,7 +67,7 @@ namespace Precision.Classes
             vibrations = new List<Vibration>();
         }
 
-        public Vibration(PlayerIndex playerIndex, float speedLeft, float speedRight, TimeSpan duration)
+        internal Vibration(PlayerIndex playerIndex, float speedLeft, float speedRight, TimeSpan duration)
         {
             this.playerIndex = playerIndex;
             this.speedLeft = speedLeft;
@@ -172,22 +172,29 @@ namespace Precision.Classes
         /// <summary>
         /// Creates A vibration
         /// </summary>
-        /// <param name="playerIndex">null == all players</param>
+        /// <param name="playerIndex"></param>
         /// <param name="speedLeft"></param>
         /// <param name="speedRight"></param>
         /// <param name="duration"></param>
-        internal static void SetVibration(PlayerIndex? playerIndex, float speedLeft, float speedRight, TimeSpan duration)
+        internal static void SetVibration(PlayerIndex playerIndex, float speedLeft, float speedRight, TimeSpan duration)
         {
+            new Vibration(playerIndex, speedLeft, speedRight, duration);
+        }
+        #endregion
 
-            if (playerIndex != null) new Vibration((PlayerIndex)playerIndex, speedLeft, speedRight, duration);
-            else
-            {
-
+        #region SetVibration for all player overload
+        /// <summary>
+        /// Creates A vibration for all players
+        /// </summary>
+        /// <param name="speedLeft"></param>
+        /// <param name="speedRight"></param>
+        /// <param name="duration"></param>
+        internal static void SetVibration(float speedLeft, float speedRight, TimeSpan duration)
+        {
                 new Vibration(PlayerIndex.One, speedLeft, speedRight, duration);
                 new Vibration(PlayerIndex.Two, speedLeft, speedRight, duration);
                 new Vibration(PlayerIndex.Three, speedLeft, speedRight, duration);
                 new Vibration(PlayerIndex.Four, speedLeft, speedRight, duration);
-            }
         }
         #endregion
 
@@ -200,3 +207,4 @@ namespace Precision.Classes
         #endregion
     }
 }
+                          

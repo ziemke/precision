@@ -84,29 +84,27 @@ namespace Precision.Classes
         #region Get activeTimeBar Position
         private Vector2 GetActiveTimeBarPosition()
         {
-            foreach (Bar bar in Bar.bars)
-            {
-                Vector2 subOrigin = new Vector2(0, Config.ACTIVE_TIMEBAR_ICON_SIZE - 10);
+            Vector2 desiredPositionStart = new Vector2(PrecisionGame.SCREEN_WIDTH / 2, (Config.ACTIVE_TIMEBAR_ICON_SIZE + 16));
+            Vector2 desiredPosition = new Vector2();
+            Vector2 subOrigin = new Vector2(0, Config.ACTIVE_TIMEBAR_ICON_SIZE - 16);
 
-                if (Bar.bars.Count != 1)
+            if (Bar.bars.Count <= 1) return desiredPosition;
+            
+            for (int c = 0; c < Bar.bars.Count + 1; c++)
+  			{
+                desiredPosition = desiredPositionStart;
+                desiredPosition.Y = (c + 1) * desiredPositionStart.Y;
+                bool desiredPositionTaken = false;
+                foreach (Bar bar in Bar.bars)
                 {
-                    for (int i = Bar.bars.Count - 1; i > 0; i--)
-                    {
-                        Vector2 desiredPosition = new Vector2(PrecisionGame.SCREEN_WIDTH / 2, (Config.ACTIVE_TIMEBAR_ICON_SIZE + 10) * (Bar.bars.Count - i));
-
-                        BackgroundBar backgroundBar = bar as BackgroundBar;
-                        if (backgroundBar != null) break;
-
-                        if (bar != this.activeTimeBar)
-                            if (bar.Percent == 0f && bar.Position == desiredPosition - subOrigin || bar.Position != desiredPosition - subOrigin)
-                                return desiredPosition - subOrigin;
-                    }
-
-
-                }
-                else
-                    return (new Vector2(PrecisionGame.SCREEN_WIDTH / 2, Config.ACTIVE_TIMEBAR_ICON_SIZE + 10) - subOrigin);
-            }
+                  BackgroundBar backgroundBar = bar as BackgroundBar;
+                  if (backgroundBar != null) continue;
+                  if (bar.Percent == 0f) continue;
+                  if (bar != this.activeTimeBar && bar.Position == desiredPosition - subOrigin)
+                      desiredPositionTaken = true;                    
+                 }
+                 if (!desiredPositionTaken) return desiredPosition - subOrigin;
+           }
 
             return Vector2.Zero;
         }

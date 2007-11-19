@@ -33,7 +33,7 @@ namespace Precision.Classes
             get { return amount; }
         }
 
-        public bool IsDying
+        internal bool IsDying
         {
             get { return isDying; }
             set { isDying = value; }
@@ -119,6 +119,7 @@ namespace Precision.Classes
         {
             StartScale(-1, 3f);
             isDying = true;
+            Audio.Play(Audio.Cue.Enemy_Kill);
         }
         #endregion
         #endregion

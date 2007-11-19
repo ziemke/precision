@@ -13,14 +13,13 @@ namespace Precision.Classes
         
         internal const int POWERUP_PLACEMENT_RETRYCOUNT = 100;
 
-        internal const int ACTIVE_TIMEBAR_WIDTH = 400;
-        internal const int ACTIVE_TIMEBAR_HEIGHT = 10;
-        internal const int ACTIVE_TIMEBAR_ICON_SIZE = 30;
-        //protected const int PICKUP_TIMEBAR_WIDTH = 50;
-        internal const int PICKUP_TIMEBAR_HEIGHT = 7; //10
+        internal const int ACTIVE_TIMEBAR_WIDTH = 640;
+        internal const int ACTIVE_TIMEBAR_HEIGHT = 16;
+        internal const int ACTIVE_TIMEBAR_ICON_SIZE = 48;
+        internal const int PICKUP_TIMEBAR_HEIGHT = 11; //10
 
-        internal const float TIME_POWERUP_DURATION = 3f;
-        internal const float TIME_POWERUP_RESPAWN_TIME = 1f;
+        internal const float TIME_POWERUP_DURATION = 5f;
+        internal const float TIME_POWERUP_RESPAWN_TIME = 0.5f;
         internal const float TIME_POWERUP_FREQUENCY = 1f;
         internal const float TIME_POWERUP_PICKUP_TIME = 5f;
         internal const int TIME_POWERUP_START_LEVEL = 1;
@@ -59,9 +58,9 @@ namespace Precision.Classes
 
         internal const float DESTRUCTION_POWERUP_DURATION = 5f;
         internal const float DESTRUCTION_POWERUP_RESPAWN_TIME = 4f;
-        internal const float DESTRUCTION_POWERUP_FREQUENCY = 1f;//0.4
+        internal const float DESTRUCTION_POWERUP_FREQUENCY = 0.4f;//0.4
         internal const float DESTRUCTION_POWERUP_PICKUP_TIME = 6f;
-        internal const int DESTRUCTION_POWERUP_START_LEVEL = 1;//9
+        internal const int DESTRUCTION_POWERUP_START_LEVEL = 9;//9
         internal static readonly Color destructionPowerupActiveTimeBarColor = Color.Red;
         internal static readonly Color destructionPowerupPickupTimeBarColor = Color.White;
         
@@ -85,10 +84,18 @@ namespace Precision.Classes
             speedPowerdownPickupTimeBarColors.Add(Color.Green);
 
             resolutions = new List<Point>();
+
+            //4:3
             resolutions.Add(new Point(800, 600));
             resolutions.Add(new Point(1024, 768));
             resolutions.Add(new Point(1152, 864));
             resolutions.Add(new Point(1280, 960));
+
+            //16:9
+            resolutions.Add(new Point(800, 640));
+            resolutions.Add(new Point(1024, 820));
+            resolutions.Add(new Point(1152, 920));
+            resolutions.Add(new Point(1280, 1024));
         }
     }
 }

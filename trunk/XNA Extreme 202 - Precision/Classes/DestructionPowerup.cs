@@ -39,7 +39,7 @@ namespace Precision.Classes
                     {
                         if (!enemy.IsDying && Actor.CheckCollision(enemy, PrecisionGame.player) || (Actor.CheckCollision(enemy, PrecisionGame.player2) && PrecisionGame.isCoopMode))
                         {
-                            Vibration.SetVibration(null, 0.3f, 0.3f, new System.TimeSpan(0, 0, 0, 0, 200));
+                            Vibration.SetVibration(0.3f, 0.3f, new System.TimeSpan(0, 0, 0, 0, 200));
                             enemy.Kill();
                         }
 

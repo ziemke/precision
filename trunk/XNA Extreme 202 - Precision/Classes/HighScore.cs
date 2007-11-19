@@ -8,7 +8,7 @@ namespace Precision.Classes
     {
         private string userName;
 
-        public string UserName
+        internal string UserName
         {
             get { return userName; }
             set { userName = value; }
@@ -16,7 +16,7 @@ namespace Precision.Classes
 
         private int score;
 
-        public int Score
+        internal int Score
         {
             get { return score; }
             set { score = value; }
@@ -25,7 +25,7 @@ namespace Precision.Classes
 
         private int level;
 
-        public int Level
+        internal int Level
         {
             get { return level; }
             set { level = value; }

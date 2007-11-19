@@ -29,7 +29,6 @@ namespace Precision.Classes
             this.ActiveTime = Config.TIME_POWERUP_DURATION;
             this.SlowDownPercent = Config.TIME_POWERUP_SLOWDOWN;
             this.DefaultPickupTime = Config.TIME_POWERUP_PICKUP_TIME;
-            this.activeTimeBar.Position = new Vector2(PrecisionGame.SCREEN_WIDTH / 2, Config.ACTIVE_TIMEBAR_HEIGHT);
             this.startLevel = Config.TIME_POWERUP_START_LEVEL;
         }
         #endregion
@@ -40,6 +39,7 @@ namespace Precision.Classes
         {
             Actor.TimeScale = this.slowDownPercent;
             PrecisionGame.showSlowMotionEffect = true;
+            Audio.Play(Audio.Cue.Powerup_Time);
             base.Activate();
         }
         #endregion
@@ -49,6 +49,7 @@ namespace Precision.Classes
         {
             Actor.TimeScale = 1f;
             PrecisionGame.showSlowMotionEffect = false;
+            Audio.StopCategory("Powerup_Time");
             base.Deactivate();
         }
         
