@@ -105,6 +105,7 @@ namespace Precision.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("800, 600")]
         public global::Microsoft.Xna.Framework.Point resolution {
             get {
                 return ((global::Microsoft.Xna.Framework.Point)(this["resolution"]));

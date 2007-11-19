@@ -25,7 +25,7 @@ namespace Precision.Classes
         float lifePercent;
         float deathTime;
 
-        const int LIFEBAR_HEIGHT = 8;
+        const int LIFEBAR_HEIGHT = 13;
         private BackgroundBar lifeBar;
         
         #endregion

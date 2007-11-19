@@ -110,7 +110,8 @@ namespace Precision.Classes
             this.Position = -this.Origin;
             this.pickupTimeBar.Position = -this.Origin;
             this.pickupTimeRemaining = 0f;
-            
+
+       //     Audio.Play(Audio.Cue.Game_Pickup);
         }
         #endregion
 
