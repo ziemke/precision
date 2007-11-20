@@ -116,7 +116,7 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>Input</Name>
     </Compile>
-    <Compile Include="Classes\ScaleDownLifePowerUp.cs">
+    <Compile Include="Classes\ScaleDownPowerup.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>ScaleDownLifePowerUp</Name>
     </Compile>
@@ -124,6 +124,7 @@
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>nonRecurringPowerup</Name>
     </Compile>
+    <Compile Include="Classes\ScaleDownRing.cs" />
     <Compile Include="Classes\ScorePowerup.cs">
       <XNAUseContentPipeline>false</XNAUseContentPipeline>
       <Name>ScorePowerup</Name>
