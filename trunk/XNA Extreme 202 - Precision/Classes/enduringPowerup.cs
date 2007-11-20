@@ -88,8 +88,6 @@ namespace Precision.Classes
             Vector2 desiredPosition = new Vector2();
             Vector2 subOrigin = new Vector2(0, Config.ACTIVE_TIMEBAR_ICON_SIZE - 16);
 
-            if (Bar.bars.Count <= 1) return desiredPosition;
-            
             for (int c = 0; c < Bar.bars.Count + 1; c++)
   			{
                 desiredPosition = desiredPositionStart;
