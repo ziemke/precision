@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual C# Express 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNA Extreme 202 - Precision", "XNA Extreme 202 - Precision\XNA Extreme 202 - Precision.csproj", "{2D11013E-8093-434A-AECC-BFED6F23FC6C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XnaPongXbox360", "..\..\..\Samples\Chapter2\XnaPong\XnaPongXbox360.csproj", "{1689DF39-6DC4-4A87-834D-FC2DD70B871F}"
