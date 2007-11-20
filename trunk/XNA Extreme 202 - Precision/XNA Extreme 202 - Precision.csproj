@@ -1,18 +1,36 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
-    <ProjectGuid>{2D11013E-8093-434A-AECC-BFED6F23FC6C}</ProjectGuid>
-    <ProjectTypeGuids>{9F340DF3-2AED-4330-AC16-78AC2D9B4738};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D11013E-8093-434A-AECC-BFED6F23FC6C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Precision</RootNamespace>
     <AssemblyName>XNA Extreme 202 - Precision</AssemblyName>
-    <XnaFrameworkVersion>v1.0</XnaFrameworkVersion>
-    <XnaPlatform>Windows</XnaPlatform>
-    <XNAGlobalContentPipelineAssemblies>Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll;Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll;Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll;Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</XNAGlobalContentPipelineAssemblies>
-    <XNAProjectContentPipelineAssemblies>
-    </XNAProjectContentPipelineAssemblies>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -396,6 +414,28 @@
       <CachedSettingsPropName>XNA_Extreme_202___Precision_localhost_Service1</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -406,9 +446,6 @@
   -->
   <ProjectExtensions>
     <VisualStudio>
-      <FlavorProperties GUID="{9F340DF3-2AED-4330-AC16-78AC2D9B4738}">
-        <Thumbnail Include="GameThumbnail.png" />
-      </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
 </Project>
