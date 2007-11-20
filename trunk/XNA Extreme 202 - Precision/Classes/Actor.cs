@@ -12,8 +12,6 @@ namespace Precision.Classes
         protected Texture2D texture;
         protected Color tint;
 
-        Vector2 position;
-
         const float FLICKER_FREQUENCY = 15f;
         protected bool visible;
         bool flicker;
@@ -29,11 +27,7 @@ namespace Precision.Classes
         #endregion
 
         #region Properties
-        internal Vector2 Position
-        {
-            get { return position; }
-            set { position = value; }
-        }
+        internal Vector2 Position { get; set; }
 
         internal Vector2 Origin
         {

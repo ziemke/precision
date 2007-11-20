@@ -19,7 +19,7 @@ namespace Precision.Classes
         internal const int PICKUP_TIMEBAR_HEIGHT = 11; //10
 
         internal const float TIME_POWERUP_DURATION = 5f;
-        internal const float TIME_POWERUP_RESPAWN_TIME = 0.5f;
+        internal const float TIME_POWERUP_RESPAWN_TIME = 0.2f;
         internal const float TIME_POWERUP_FREQUENCY = 1f;
         internal const float TIME_POWERUP_PICKUP_TIME = 5f;
         internal const int TIME_POWERUP_START_LEVEL = 1;
@@ -34,11 +34,12 @@ namespace Precision.Classes
         internal static readonly Color extralifePowerupPickupTimeBarColor = Color.White;
 
         internal const float SCALE_DOWN_POWERUP_RESPAWN_TIME = 2f; // 2
-        internal const float SCALE_DOWN_POWERUP_FREQUENCY = 0.3f;
+        internal const float SCALE_DOWN_POWERUP_FREQUENCY = 0.5f;
         internal const float SCALE_DOWN_POWERUP_PICKUP_TIME = 5f;
         internal const int SCALE_DOWN_POWERUP_START_LEVEL = 4; //4
-        internal static readonly Color SCALE_DOWNPowerupPickupTimeBarColor = Color.White;
+        internal static readonly Color scaleDownPowerupPickupTimeBarColor = Color.White;
         internal const float SCALE_DOWN_POWERUP_SCALE = 0.5f;
+        internal const float SCALE_DOWN_POWERUP_SCALE_TIME = 2.5f;
 
         internal const float SCORE_POWERUP_DURATION = 4f;
         internal const float SCORE_POWERUP_RESPAWN_TIME = 1f;
@@ -72,6 +73,7 @@ namespace Precision.Classes
         internal static readonly Color speedPowerdownActiveTimeBarColor = Color.Red;
         internal static readonly List<Color> speedPowerdownPickupTimeBarColors;
         internal const float SPEED_POWERDOWN_SLOWDOWN = 0.4f;
+
 
         internal static readonly List<Point> resolutions;
         

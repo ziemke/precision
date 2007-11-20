@@ -4,10 +4,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Precision.Classes
 {
-    class ScaleDownPowerUp : nonRecurringPowerup
+    class ScaleDownPowerup : nonRecurringPowerup
     {
         #region Constructors
-        internal ScaleDownPowerUp(Texture2D texture, List<Color> pickupTimeBarColors)
+        internal ScaleDownPowerup(Texture2D texture, List<Color> pickupTimeBarColors)
             : base(texture, pickupTimeBarColors)
         {
             this.frequency = Config.SCALE_DOWN_POWERUP_FREQUENCY;
@@ -24,7 +24,7 @@ namespace Precision.Classes
         #region override PickUp
         internal override void Pickup()
         {
-            PrecisionGame.ScaleEnemiesDown(Config.SCALE_DOWN_POWERUP_SCALE);
+            PrecisionGame.AddScaleDownRing();
             base.Pickup();
         }
         #endregion
