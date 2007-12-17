@@ -69,8 +69,6 @@ namespace Precision.Classes
                 PrecisionGame.player2.InvincibilityTime = Config.DESTRUCTION_POWERUP_DURATION;
                 PrecisionGame.player2.overlayTextures.Add(this.playerTexture);
             }
-
-            base.Activate();
         }
         #endregion
 
@@ -79,7 +77,6 @@ namespace Precision.Classes
         {
             PrecisionGame.player.overlayTextures.Remove(this.playerTexture);
             if (PrecisionGame.isCoopMode) PrecisionGame.player2.overlayTextures.Remove(this.playerTexture);
-            base.Deactivate();
         }
         #endregion
         #endregion
