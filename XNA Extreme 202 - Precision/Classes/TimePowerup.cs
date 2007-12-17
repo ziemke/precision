@@ -40,7 +40,6 @@ namespace Precision.Classes
             Actor.TimeScale = this.slowDownPercent;
             PrecisionGame.showSlowMotionEffect = true;
             Audio.Play(Audio.Cue.Powerup_Time);
-            base.Activate();
         }
         #endregion
 
@@ -50,7 +49,6 @@ namespace Precision.Classes
             Actor.TimeScale = 1f;
             PrecisionGame.showSlowMotionEffect = false;
             Audio.StopCategory("Powerup_Time");
-            base.Deactivate();
         }
         
         #endregion

@@ -34,7 +34,7 @@ namespace Precision.Classes
         internal static readonly Color extralifePowerupPickupTimeBarColor = Color.White;
 
         internal const float SCALE_DOWN_POWERUP_RESPAWN_TIME = 2f; // 2
-        internal const float SCALE_DOWN_POWERUP_FREQUENCY = 0.5f;
+        internal const float SCALE_DOWN_POWERUP_FREQUENCY = 0.4f;
         internal const float SCALE_DOWN_POWERUP_PICKUP_TIME = 5f;
         internal const int SCALE_DOWN_POWERUP_START_LEVEL = 4; //4
         internal static readonly Color scaleDownPowerupPickupTimeBarColor = Color.White;
@@ -94,10 +94,11 @@ namespace Precision.Classes
             resolutions.Add(new Point(1280, 960));
 
             //16:9
-            resolutions.Add(new Point(800, 640));
-            resolutions.Add(new Point(1024, 820));
-            resolutions.Add(new Point(1152, 920));
-            resolutions.Add(new Point(1280, 1024));
+            //resolutions.Add(new Point(1280, 720));
+            //resolutions.Add(new Point(800, 640));
+            //resolutions.Add(new Point(1024, 820));
+            //resolutions.Add(new Point(1152, 920));
+            //resolutions.Add(new Point(1280, 1024));
         }
     }
 }

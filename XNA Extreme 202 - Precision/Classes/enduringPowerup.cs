@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Precision.Classes
 {
-    class enduringPowerup : Powerup
+    abstract class enduringPowerup : Powerup
     {
         #region Fields
         float activeTime;
@@ -70,15 +70,11 @@ namespace Precision.Classes
         #endregion
 
         #region Activate
-        protected virtual void Activate()
-        { 
-        }
+        protected abstract void Activate();
         #endregion
 
         #region Deactivate
-        protected virtual void Deactivate()
-        {
-        }
+        protected abstract void Deactivate();
         #endregion
 
         #region Get activeTimeBar Position

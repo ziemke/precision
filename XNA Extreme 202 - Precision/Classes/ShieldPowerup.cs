@@ -32,8 +32,6 @@ namespace Precision.Classes
                 PrecisionGame.player2.InvincibilityTime = Config.SHIELD_POWERUP_DURATION;
                 PrecisionGame.player2.overlayTextures.Add(this.texture);
             }
-
-            base.Activate();
         }
         #endregion
 
@@ -49,7 +47,6 @@ namespace Precision.Classes
                 PrecisionGame.player2.InvincibilityTime = 0;
                 PrecisionGame.player2.overlayTextures.Remove(this.texture);
             }
-            base.Deactivate();
         }
         #endregion
         #endregion

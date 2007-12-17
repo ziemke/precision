@@ -44,6 +44,7 @@ namespace Precision.Classes
         }
 	    #endregion
 
+
         #region Constructors
         internal Powerup(Texture2D texture, List<Color> pickupTimeBarColors)
             : base(texture)

@@ -25,7 +25,6 @@ namespace Precision.Classes
         protected override void Activate()
         {
             PrecisionGame.scoreMultiplicator = 2;
-            base.Activate();
         }
         #endregion
 
@@ -33,7 +32,6 @@ namespace Precision.Classes
         protected override void Deactivate()
         {
             PrecisionGame.scoreMultiplicator = 1;
-            base.Deactivate();
         }
         
         #endregion
